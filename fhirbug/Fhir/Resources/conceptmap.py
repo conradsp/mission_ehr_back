@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -26,53 +26,65 @@ class ConceptMap(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.contact = None
-        """ Contact details for the publisher.
-        List of `ContactDetail` items (represented as `dict` in JSON). """
-
-        self.copyright = None
-        """ Use and/or publishing restrictions.
+        self.url = None
+        """ Canonical identifier for this concept map, represented as a URI
+        (globally unique).
         Type `str`. """
 
-        self.date = None
-        """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        self.identifier = None
+        """ Additional identifier for the concept map.
+        Type `Identifier` (represented as `dict` in JSON). """
 
-        self.description = None
-        """ Natural language description of the concept map.
+        self.version = None
+        """ Business version of the concept map.
+        Type `str`. """
+
+        self.name = None
+        """ Name for this concept map (computer friendly).
+        Type `str`. """
+
+        self.title = None
+        """ Name for this concept map (human friendly).
+        Type `str`. """
+
+        self.status = None
+        """ draft | active | retired | unknown.
         Type `str`. """
 
         self.experimental = None
         """ For testing purposes, not real usage.
         Type `bool`. """
 
-        self.group = None
-        """ Same source and target systems.
-        List of `ConceptMapGroup` items (represented as `dict` in JSON). """
-
-        self.identifier = None
-        """ Additional identifier for the concept map.
-        Type `Identifier` (represented as `dict` in JSON). """
-
-        self.jurisdiction = None
-        """ Intended jurisdiction for concept map (if applicable).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
-        self.name = None
-        """ Name for this concept map (computer friendly).
-        Type `str`. """
+        self.date = None
+        """ Date last changed.
+        Type `FHIRDate` (represented as `str` in JSON). """
 
         self.publisher = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
 
+        self.contact = None
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+
+        self.description = None
+        """ Natural language description of the concept map.
+        Type `str`. """
+
+        self.useContext = None
+        """ The context that the content is intended to support.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+
+        self.jurisdiction = None
+        """ Intended jurisdiction for concept map (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+
         self.purpose = None
         """ Why this concept map is defined.
         Type `str`. """
 
-        self.sourceCanonical = None
-        """ The source value set that contains the concepts that are being
-        mapped.
+        self.copyright = None
+        """ Use and/or publishing restrictions.
         Type `str`. """
 
         self.sourceUri = None
@@ -80,60 +92,48 @@ class ConceptMap(domainresource.DomainResource):
         mapped.
         Type `str`. """
 
-        self.status = None
-        """ draft | active | retired | unknown.
-        Type `str`. """
-
-        self.targetCanonical = None
-        """ The target value set which provides context for the mappings.
+        self.sourceCanonical = None
+        """ The source value set that contains the concepts that are being
+        mapped.
         Type `str`. """
 
         self.targetUri = None
         """ The target value set which provides context for the mappings.
         Type `str`. """
 
-        self.title = None
-        """ Name for this concept map (human friendly).
+        self.targetCanonical = None
+        """ The target value set which provides context for the mappings.
         Type `str`. """
 
-        self.url = None
-        """ Canonical identifier for this concept map, represented as a URI
-        (globally unique).
-        Type `str`. """
-
-        self.useContext = None
-        """ The context that the content is intended to support.
-        List of `UsageContext` items (represented as `dict` in JSON). """
-
-        self.version = None
-        """ Business version of the concept map.
-        Type `str`. """
+        self.group = None
+        """ Same source and target systems.
+        List of `ConceptMapGroup` items (represented as `dict` in JSON). """
 
         super(ConceptMap, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ConceptMap, self).elementProperties()
         js.extend([
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
-            ("experimental", "experimental", bool, False, None, False),
-            ("group", "group", ConceptMapGroup, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
-            ("sourceCanonical", "sourceCanonical", str, False, "source", False),
-            ("sourceUri", "sourceUri", str, False, "source", False),
-            ("status", "status", str, False, None, True),
-            ("targetCanonical", "targetCanonical", str, False, "target", False),
-            ("targetUri", "targetUri", str, False, "target", False),
-            ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("version", "version", str, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("title", "title", str, False, None, False),
+            ("status", "status", PublicationStatus.str, False, None, True),
+            ("experimental", "experimental", bool, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("publisher", "publisher", str, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("description", "description", str, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("purpose", "purpose", str, False, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("sourceUri", "sourceUri", str, False, "source", False),
+            ("sourceCanonical", "sourceCanonical", str, False, "source", False),
+            ("targetUri", "targetUri", str, False, "target", False),
+            ("targetCanonical", "targetCanonical", str, False, "target", False),
+            ("group", "group", ConceptMapGroup, True, None, False),
         ])
         return js
 
@@ -146,8 +146,6 @@ class ConceptMapGroup(backboneelement.BackboneElement):
     A group of mappings that all have the same source and target system.
     """
 
-    resource_type = "ConceptMapGroup"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -155,10 +153,6 @@ class ConceptMapGroup(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-
-        self.element = None
-        """ Mappings for a concept from the source set.
-        List of `ConceptMapGroupElement` items (represented as `dict` in JSON). """
 
         self.source = None
         """ Source system where concepts to be mapped are defined.
@@ -176,6 +170,10 @@ class ConceptMapGroup(backboneelement.BackboneElement):
         """ Specific version of the  code system.
         Type `str`. """
 
+        self.element = None
+        """ Mappings for a concept from the source set.
+        List of `ConceptMapGroupElement` items (represented as `dict` in JSON). """
+
         self.unmapped = None
         """ What to do when there is no mapping for the source concept.
         Type `ConceptMapGroupUnmapped` (represented as `dict` in JSON). """
@@ -185,11 +183,11 @@ class ConceptMapGroup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapGroup, self).elementProperties()
         js.extend([
-            ("element", "element", ConceptMapGroupElement, True, None, True),
             ("source", "source", str, False, None, False),
             ("sourceVersion", "sourceVersion", str, False, None, False),
             ("target", "target", str, False, None, False),
             ("targetVersion", "targetVersion", str, False, None, False),
+            ("element", "element", ConceptMapGroupElement, True, None, True),
             ("unmapped", "unmapped", ConceptMapGroupUnmapped, False, None, False),
         ])
         return js
@@ -201,8 +199,6 @@ class ConceptMapGroupElement(backboneelement.BackboneElement):
     Mappings for an individual concept in the source to one or more concepts in
     the target.
     """
-
-    resource_type = "ConceptMapGroupElement"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -242,8 +238,6 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
     A concept from the target value set that this concept maps to.
     """
 
-    resource_type = "ConceptMapGroupElementTarget"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -256,14 +250,6 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
         """ Code that identifies the target element.
         Type `str`. """
 
-        self.comment = None
-        """ Description of status/issues in mapping.
-        Type `str`. """
-
-        self.dependsOn = None
-        """ Other elements required for this mapping (from context).
-        List of `ConceptMapGroupElementTargetDependsOn` items (represented as `dict` in JSON). """
-
         self.display = None
         """ Display for the code.
         Type `str`. """
@@ -272,6 +258,14 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
         """ relatedto | equivalent | equal | wider | subsumes | narrower |
         specializes | inexact | unmatched | disjoint.
         Type `str`. """
+
+        self.comment = None
+        """ Description of status/issues in mapping.
+        Type `str`. """
+
+        self.dependsOn = None
+        """ Other elements required for this mapping (from context).
+        List of `ConceptMapGroupElementTargetDependsOn` items (represented as `dict` in JSON). """
 
         self.product = None
         """ Other concepts that this mapping also produces.
@@ -283,10 +277,10 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
         js = super(ConceptMapGroupElementTarget, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, False),
+            ("display", "display", str, False, None, False),
+            ("equivalence", "equivalence", ConceptMapEquivalence.str, False, None, True),
             ("comment", "comment", str, False, None, False),
             ("dependsOn", "dependsOn", ConceptMapGroupElementTargetDependsOn, True, None, False),
-            ("display", "display", str, False, None, False),
-            ("equivalence", "equivalence", str, False, None, True),
             ("product", "product", ConceptMapGroupElementTargetDependsOn, True, None, False),
         ])
         return js
@@ -300,8 +294,6 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
     specified value.
     """
 
-    resource_type = "ConceptMapGroupElementTargetDependsOn"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -309,10 +301,6 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-
-        self.display = None
-        """ Display for the code (if value is a code).
-        Type `str`. """
 
         self.property = None
         """ Reference to property mapping depends on.
@@ -326,15 +314,19 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
         """ Value of the referenced element.
         Type `str`. """
 
+        self.display = None
+        """ Display for the code (if value is a code).
+        Type `str`. """
+
         super(ConceptMapGroupElementTargetDependsOn, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ConceptMapGroupElementTargetDependsOn, self).elementProperties()
         js.extend([
-            ("display", "display", str, False, None, False),
             ("property", "property", str, False, None, True),
             ("system", "system", str, False, None, False),
             ("value", "value", str, False, None, True),
+            ("display", "display", str, False, None, False),
         ])
         return js
 
@@ -347,8 +339,6 @@ class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
     in a code is specified to have equivalence = unmatched.
     """
 
-    resource_type = "ConceptMapGroupUnmapped"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -357,16 +347,16 @@ class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
+        self.mode = None
+        """ provided | fixed | other-map.
+        Type `str`. """
+
         self.code = None
         """ Fixed code when mode = fixed.
         Type `str`. """
 
         self.display = None
         """ Display for the code.
-        Type `str`. """
-
-        self.mode = None
-        """ provided | fixed | other-map.
         Type `str`. """
 
         self.url = None
@@ -379,15 +369,27 @@ class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapGroupUnmapped, self).elementProperties()
         js.extend([
+            ("mode", "mode", ConceptMapGroupUnmappedMode.str, False, None, True),
             ("code", "code", str, False, None, False),
             ("display", "display", str, False, None, False),
-            ("mode", "mode", str, False, None, True),
             ("url", "url", str, False, None, False),
         ])
         return js
 
 
 import sys
+try:
+    from . import ConceptMapEquivalence
+except ImportError:
+    ConceptMapEquivalence = sys.modules[__package__ + '.ConceptMapEquivalence']
+try:
+    from . import ConceptMapGroupUnmappedMode
+except ImportError:
+    ConceptMapGroupUnmappedMode = sys.modules[__package__ + '.ConceptMapGroupUnmappedMode']
+try:
+    from . import PublicationStatus
+except ImportError:
+    PublicationStatus = sys.modules[__package__ + '.PublicationStatus']
 try:
     from . import codeableconcept
 except ImportError:

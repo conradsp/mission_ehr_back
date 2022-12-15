@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -26,37 +26,37 @@ class CareTeam(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.category = None
-        """ Type of team.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
-        self.encounter = None
-        """ Encounter created as part of.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
         self.identifier = None
         """ External Ids for this team.
         List of `Identifier` items (represented as `dict` in JSON). """
 
-        self.managingOrganization = None
-        """ Organization responsible for the care team.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
+        self.status = None
+        """ proposed | active | suspended | inactive | entered-in-error.
+        Type `str`. """
+
+        self.category = None
+        """ Type of team.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
 
         self.name = None
         """ Name of the team, such as crisis assessment team.
         Type `str`. """
 
-        self.note = None
-        """ Comments made about the CareTeam.
-        List of `Annotation` items (represented as `dict` in JSON). """
+        self.subject = None
+        """ Who care team is for.
+        Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.participant = None
-        """ Members of the team.
-        List of `CareTeamParticipant` items (represented as `dict` in JSON). """
+        self.encounter = None
+        """ Encounter created as part of.
+        Type `FHIRReference` (represented as `dict` in JSON). """
 
         self.period = None
         """ Time period team covers.
         Type `Period` (represented as `dict` in JSON). """
+
+        self.participant = None
+        """ Members of the team.
+        List of `CareTeamParticipant` items (represented as `dict` in JSON). """
 
         self.reasonCode = None
         """ Why the care team exists.
@@ -66,36 +66,36 @@ class CareTeam(domainresource.DomainResource):
         """ Why the care team exists.
         List of `FHIRReference` items (represented as `dict` in JSON). """
 
-        self.status = None
-        """ proposed | active | suspended | inactive | entered-in-error.
-        Type `str`. """
-
-        self.subject = None
-        """ Who care team is for.
-        Type `FHIRReference` (represented as `dict` in JSON). """
+        self.managingOrganization = None
+        """ Organization responsible for the care team.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
 
         self.telecom = None
         """ A contact detail for the care team (that applies to all members).
         List of `ContactPoint` items (represented as `dict` in JSON). """
+
+        self.note = None
+        """ Comments made about the CareTeam.
+        List of `Annotation` items (represented as `dict` in JSON). """
 
         super(CareTeam, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(CareTeam, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, True, None, False),
+            ("status", "status", CareTeamStatus.str, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("name", "name", str, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("participant", "participant", CareTeamParticipant, True, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("period", "period", period.Period, False, None, False),
+            ("participant", "participant", CareTeamParticipant, True, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, True, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
         ])
         return js
 
@@ -109,8 +109,6 @@ class CareTeamParticipant(backboneelement.BackboneElement):
     the care team.
     """
 
-    resource_type = "CareTeamParticipant"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -118,6 +116,10 @@ class CareTeamParticipant(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+
+        self.role = None
+        """ Type of involvement.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
 
         self.member = None
         """ Who is involved.
@@ -131,24 +133,24 @@ class CareTeamParticipant(backboneelement.BackboneElement):
         """ Time period of participant.
         Type `Period` (represented as `dict` in JSON). """
 
-        self.role = None
-        """ Type of involvement.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
         super(CareTeamParticipant, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(CareTeamParticipant, self).elementProperties()
         js.extend([
+            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
             ("member", "member", fhirreference.FHIRReference, False, None, False),
             ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
             ("period", "period", period.Period, False, None, False),
-            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
 
 import sys
+try:
+    from . import CareTeamStatus
+except ImportError:
+    CareTeamStatus = sys.modules[__package__ + '.CareTeamStatus']
 try:
     from . import annotation
 except ImportError:

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -29,9 +29,17 @@ class DiagnosticReport(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
+        self.identifier = None
+        """ Business identifier for report.
+        List of `Identifier` items (represented as `dict` in JSON). """
+
         self.basedOn = None
         """ What was requested.
         List of `FHIRReference` items (represented as `dict` in JSON). """
+
+        self.status = None
+        """ registered | partial | preliminary | final +.
+        Type `str`. """
 
         self.category = None
         """ Service category.
@@ -41,13 +49,13 @@ class DiagnosticReport(domainresource.DomainResource):
         """ Name/Code for this diagnostic report.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
-        self.conclusion = None
-        """ Clinical conclusion (interpretation) of test results.
-        Type `str`. """
+        self.subject = None
+        """ The subject of the report - usually, but not always, the patient.
+        Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.conclusionCode = None
-        """ Codes for the clinical conclusion of test results.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self.encounter = None
+        """ Health care event when test ordered.
+        Type `FHIRReference` (represented as `dict` in JSON). """
 
         self.effectiveDateTime = None
         """ Clinically relevant time/time-period for report.
@@ -57,37 +65,12 @@ class DiagnosticReport(domainresource.DomainResource):
         """ Clinically relevant time/time-period for report.
         Type `Period` (represented as `dict` in JSON). """
 
-        self.encounter = None
-        """ Health care event when test ordered.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.identifier = None
-        """ Business identifier for report.
-        List of `Identifier` items (represented as `dict` in JSON). """
-
-        self.imagingStudy = None
-        """ Reference to full details of imaging associated with the diagnostic
-        report.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-
         self.issued = None
         """ DateTime this version was made.
         Type `FHIRDate` (represented as `str` in JSON). """
 
-        self.media = None
-        """ Key images associated with this report.
-        List of `DiagnosticReportMedia` items (represented as `dict` in JSON). """
-
         self.performer = None
         """ Responsible Diagnostic Service.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-
-        self.presentedForm = None
-        """ Entire report as issued.
-        List of `Attachment` items (represented as `dict` in JSON). """
-
-        self.result = None
-        """ Observations.
         List of `FHIRReference` items (represented as `dict` in JSON). """
 
         self.resultsInterpreter = None
@@ -98,38 +81,55 @@ class DiagnosticReport(domainresource.DomainResource):
         """ Specimens this report is based on.
         List of `FHIRReference` items (represented as `dict` in JSON). """
 
-        self.status = None
-        """ registered | partial | preliminary | final +.
+        self.result = None
+        """ Observations.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+
+        self.imagingStudy = None
+        """ Reference to full details of imaging associated with the diagnostic
+        report.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+
+        self.media = None
+        """ Key images associated with this report.
+        List of `DiagnosticReportMedia` items (represented as `dict` in JSON). """
+
+        self.conclusion = None
+        """ Clinical conclusion (interpretation) of test results.
         Type `str`. """
 
-        self.subject = None
-        """ The subject of the report - usually, but not always, the patient.
-        Type `FHIRReference` (represented as `dict` in JSON). """
+        self.conclusionCode = None
+        """ Codes for the clinical conclusion of test results.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+
+        self.presentedForm = None
+        """ Entire report as issued.
+        List of `Attachment` items (represented as `dict` in JSON). """
 
         super(DiagnosticReport, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(DiagnosticReport, self).elementProperties()
         js.extend([
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
+            ("status", "status", DiagnosticReportStatus.str, False, None, True),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("conclusion", "conclusion", str, False, None, False),
-            ("conclusionCode", "conclusionCode", codeableconcept.CodeableConcept, True, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True, None, False),
             ("issued", "issued", fhirdate.FHIRDate, False, None, False),
-            ("media", "media", DiagnosticReportMedia, True, None, False),
             ("performer", "performer", fhirreference.FHIRReference, True, None, False),
-            ("presentedForm", "presentedForm", attachment.Attachment, True, None, False),
-            ("result", "result", fhirreference.FHIRReference, True, None, False),
             ("resultsInterpreter", "resultsInterpreter", fhirreference.FHIRReference, True, None, False),
             ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("result", "result", fhirreference.FHIRReference, True, None, False),
+            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True, None, False),
+            ("media", "media", DiagnosticReportMedia, True, None, False),
+            ("conclusion", "conclusion", str, False, None, False),
+            ("conclusionCode", "conclusionCode", codeableconcept.CodeableConcept, True, None, False),
+            ("presentedForm", "presentedForm", attachment.Attachment, True, None, False),
         ])
         return js
 
@@ -143,8 +143,6 @@ class DiagnosticReportMedia(backboneelement.BackboneElement):
     created during the diagnostic process, and may be directly of the patient,
     or of treated specimens (i.e. slides of interest).
     """
-
-    resource_type = "DiagnosticReportMedia"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -174,6 +172,10 @@ class DiagnosticReportMedia(backboneelement.BackboneElement):
 
 
 import sys
+try:
+    from . import DiagnosticReportStatus
+except ImportError:
+    DiagnosticReportStatus = sys.modules[__package__ + '.DiagnosticReportStatus']
 try:
     from . import attachment
 except ImportError:

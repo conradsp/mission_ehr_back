@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/UsageContext) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/UsageContext) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -16,8 +16,6 @@ class UsageContext(element.Element):
     to the applicable population (e.g., age category, DRG) or the specific
     context of care (e.g., venue, care setting, provider of care).
     """
-
-    resource_type = "UsageContext"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.

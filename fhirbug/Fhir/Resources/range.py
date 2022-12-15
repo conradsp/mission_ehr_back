@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Range) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/Range) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -14,8 +14,6 @@ class Range(element.Element):
     A set of ordered Quantities defined by a low and high limit.
     """
 
-    resource_type = "Range"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -24,12 +22,12 @@ class Range(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.high = None
-        """ High limit.
-        Type `Quantity` (represented as `dict` in JSON). """
-
         self.low = None
         """ Low limit.
+        Type `Quantity` (represented as `dict` in JSON). """
+
+        self.high = None
+        """ High limit.
         Type `Quantity` (represented as `dict` in JSON). """
 
         super(Range, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
@@ -37,8 +35,8 @@ class Range(element.Element):
     def elementProperties(self):
         js = super(Range, self).elementProperties()
         js.extend([
-            ("high", "high", quantity.Quantity, False, None, False),
             ("low", "low", quantity.Quantity, False, None, False),
+            ("high", "high", quantity.Quantity, False, None, False),
         ])
         return js
 

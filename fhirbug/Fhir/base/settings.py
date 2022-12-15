@@ -7,7 +7,7 @@ from Default.settings import *
 BASE_DIR = '../../fhirbug/Fhir/base'
 TARGET_DIR = '../../fhirbug/Fhir/Resources'
 # Base URL for where to load specification data from
-specification_url = 'http://hl7.org/fhir/R4'
+specification_url = 'http://hl7.org/fhir/R4B'
 
 # In which directory to find the templates. See below for settings that start with `tpl_`: these are the template names.
 tpl_base = BASE_DIR

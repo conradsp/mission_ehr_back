@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/RelatedPerson) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -27,72 +27,72 @@ class RelatedPerson(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
+        self.identifier = None
+        """ A human identifier for this person.
+        List of `Identifier` items (represented as `dict` in JSON). """
+
         self.active = None
         """ Whether this related person's record is in active use.
         Type `bool`. """
+
+        self.patient = None
+        """ The patient this person is related to.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.relationship = None
+        """ The nature of the relationship.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+
+        self.name = None
+        """ A name associated with the person.
+        List of `HumanName` items (represented as `dict` in JSON). """
+
+        self.telecom = None
+        """ A contact detail for the person.
+        List of `ContactPoint` items (represented as `dict` in JSON). """
+
+        self.gender = None
+        """ male | female | other | unknown.
+        Type `str`. """
+
+        self.birthDate = None
+        """ The date on which the related person was born.
+        Type `FHIRDate` (represented as `str` in JSON). """
 
         self.address = None
         """ Address where the related person can be contacted or visited.
         List of `Address` items (represented as `dict` in JSON). """
 
-        self.birthDate = None
-        """ The date on which the related person was born.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        self.photo = None
+        """ Image of the person.
+        List of `Attachment` items (represented as `dict` in JSON). """
+
+        self.period = None
+        """ Period of time that this relationship is considered valid.
+        Type `Period` (represented as `dict` in JSON). """
 
         self.communication = None
         """ A language which may be used to communicate with about the
         patient's health.
         List of `RelatedPersonCommunication` items (represented as `dict` in JSON). """
 
-        self.gender = None
-        """ male | female | other | unknown.
-        Type `str`. """
-
-        self.identifier = None
-        """ A human identifier for this person.
-        List of `Identifier` items (represented as `dict` in JSON). """
-
-        self.name = None
-        """ A name associated with the person.
-        List of `HumanName` items (represented as `dict` in JSON). """
-
-        self.patient = None
-        """ The patient this person is related to.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.period = None
-        """ Period of time that this relationship is considered valid.
-        Type `Period` (represented as `dict` in JSON). """
-
-        self.photo = None
-        """ Image of the person.
-        List of `Attachment` items (represented as `dict` in JSON). """
-
-        self.relationship = None
-        """ The nature of the relationship.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
-        self.telecom = None
-        """ A contact detail for the person.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-
         super(RelatedPerson, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(RelatedPerson, self).elementProperties()
         js.extend([
-            ("active", "active", bool, False, None, False),
-            ("address", "address", address.Address, True, None, False),
-            ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
-            ("communication", "communication", RelatedPersonCommunication, True, None, False),
-            ("gender", "gender", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("name", "name", humanname.HumanName, True, None, False),
+            ("active", "active", bool, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("period", "period", period.Period, False, None, False),
-            ("photo", "photo", attachment.Attachment, True, None, False),
             ("relationship", "relationship", codeableconcept.CodeableConcept, True, None, False),
+            ("name", "name", humanname.HumanName, True, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("gender", "gender", AdministrativeGender.str, False, None, False),
+            ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
+            ("address", "address", address.Address, True, None, False),
+            ("photo", "photo", attachment.Attachment, True, None, False),
+            ("period", "period", period.Period, False, None, False),
+            ("communication", "communication", RelatedPersonCommunication, True, None, False),
         ])
         return js
 
@@ -102,8 +102,6 @@ from . import backboneelement
 class RelatedPersonCommunication(backboneelement.BackboneElement):
     """ A language which may be used to communicate with about the patient's health.
     """
-
-    resource_type = "RelatedPersonCommunication"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -134,6 +132,10 @@ class RelatedPersonCommunication(backboneelement.BackboneElement):
 
 
 import sys
+try:
+    from . import AdministrativeGender
+except ImportError:
+    AdministrativeGender = sys.modules[__package__ + '.AdministrativeGender']
 try:
     from . import address
 except ImportError:

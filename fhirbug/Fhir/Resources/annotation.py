@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Annotation) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/Annotation) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -14,8 +14,6 @@ class Annotation(element.Element):
     A  text note which also  contains information about who made the statement
     and when.
     """
-
-    resource_type = "Annotation"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -33,13 +31,13 @@ class Annotation(element.Element):
         """ Individual responsible for the annotation.
         Type `str`. """
 
-        self.text = None
-        """ The annotation  - text content (as markdown).
-        Type `str`. """
-
         self.time = None
         """ When the annotation was made.
         Type `FHIRDate` (represented as `str` in JSON). """
+
+        self.text = None
+        """ The annotation  - text content (as markdown).
+        Type `str`. """
 
         super(Annotation, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
@@ -48,8 +46,8 @@ class Annotation(element.Element):
         js.extend([
             ("authorReference", "authorReference", fhirreference.FHIRReference, False, "author", False),
             ("authorString", "authorString", str, False, "author", False),
-            ("text", "text", str, False, None, True),
             ("time", "time", fhirdate.FHIRDate, False, None, False),
+            ("text", "text", str, False, None, True),
         ])
         return js
 

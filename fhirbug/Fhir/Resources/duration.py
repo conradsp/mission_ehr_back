@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Duration) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/Duration) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -11,8 +11,6 @@ from . import quantity
 class Duration(quantity.Quantity):
     """ A length of time.
     """
-
-    resource_type = "Duration"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.

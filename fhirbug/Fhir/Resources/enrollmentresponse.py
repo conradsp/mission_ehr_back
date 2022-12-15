@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/EnrollmentResponse) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/EnrollmentResponse) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -25,56 +25,60 @@ class EnrollmentResponse(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.created = None
-        """ Creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
-
-        self.disposition = None
-        """ Disposition Message.
-        Type `str`. """
-
         self.identifier = None
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
 
-        self.organization = None
-        """ Insurer.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.outcome = None
-        """ queued | complete | error | partial.
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
         Type `str`. """
 
         self.request = None
         """ Claim reference.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
+        self.outcome = None
+        """ queued | complete | error | partial.
+        Type `str`. """
+
+        self.disposition = None
+        """ Disposition Message.
+        Type `str`. """
+
+        self.created = None
+        """ Creation date.
+        Type `FHIRDate` (represented as `str` in JSON). """
+
+        self.organization = None
+        """ Insurer.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
         self.requestProvider = None
         """ Responsible practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.status = None
-        """ active | cancelled | draft | entered-in-error.
-        Type `str`. """
 
         super(EnrollmentResponse, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(EnrollmentResponse, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdate.FHIRDate, False, None, False),
-            ("disposition", "disposition", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("outcome", "outcome", str, False, None, False),
+            ("status", "status", FinancialResourceStatusCodes.str, False, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("outcome", "outcome", str, False, None, False),
+            ("disposition", "disposition", str, False, None, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, False),
         ])
         return js
 
 
 import sys
+try:
+    from . import FinancialResourceStatusCodes
+except ImportError:
+    FinancialResourceStatusCodes = sys.modules[__package__ + '.FinancialResourceStatusCodes']
 try:
     from . import fhirdate
 except ImportError:

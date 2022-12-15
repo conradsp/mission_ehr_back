@@ -1,4 +1,5 @@
 *.pyc
+.venv
 .idea
 build*
 __pycache__

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -23,36 +23,18 @@ class OrganizationAffiliation(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.active = None
-        """ Whether this organization affiliation record is in active use.
-        Type `bool`. """
-
-        self.code = None
-        """ Definition of the role the participatingOrganization plays.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
-        self.endpoint = None
-        """ Technical endpoints providing access to services operated for this
-        role.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-
-        self.healthcareService = None
-        """ Healthcare services provided through the role.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-
         self.identifier = None
         """ Business identifiers that are specific to this role.
         List of `Identifier` items (represented as `dict` in JSON). """
 
-        self.location = None
-        """ The location(s) at which the role occurs.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
+        self.active = None
+        """ Whether this organization affiliation record is in active use.
+        Type `bool`. """
 
-        self.network = None
-        """ Health insurance provider network in which the
-        participatingOrganization provides the role's services (if defined)
-        at the indicated locations (if defined).
-        List of `FHIRReference` items (represented as `dict` in JSON). """
+        self.period = None
+        """ The period during which the participatingOrganization is affiliated
+        with the primary organization.
+        Type `Period` (represented as `dict` in JSON). """
 
         self.organization = None
         """ Organization where the role is available.
@@ -63,38 +45,56 @@ class OrganizationAffiliation(domainresource.DomainResource):
         services or is a member of).
         Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.period = None
-        """ The period during which the participatingOrganization is affiliated
-        with the primary organization.
-        Type `Period` (represented as `dict` in JSON). """
+        self.network = None
+        """ Health insurance provider network in which the
+        participatingOrganization provides the role's services (if defined)
+        at the indicated locations (if defined).
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+
+        self.code = None
+        """ Definition of the role the participatingOrganization plays.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
 
         self.specialty = None
         """ Specific specialty of the participatingOrganization in the context
         of the role.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
 
+        self.location = None
+        """ The location(s) at which the role occurs.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+
+        self.healthcareService = None
+        """ Healthcare services provided through the role.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+
         self.telecom = None
         """ Contact details at the participatingOrganization relevant to this
         Affiliation.
         List of `ContactPoint` items (represented as `dict` in JSON). """
+
+        self.endpoint = None
+        """ Technical endpoints providing access to services operated for this
+        role.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
 
         super(OrganizationAffiliation, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(OrganizationAffiliation, self).elementProperties()
         js.extend([
-            ("active", "active", bool, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
-            ("healthcareService", "healthcareService", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("location", "location", fhirreference.FHIRReference, True, None, False),
-            ("network", "network", fhirreference.FHIRReference, True, None, False),
+            ("active", "active", bool, False, None, False),
+            ("period", "period", period.Period, False, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("participatingOrganization", "participatingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("period", "period", period.Period, False, None, False),
+            ("network", "network", fhirreference.FHIRReference, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
+            ("location", "location", fhirreference.FHIRReference, True, None, False),
+            ("healthcareService", "healthcareService", fhirreference.FHIRReference, True, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 

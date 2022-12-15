@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -23,102 +23,102 @@ class StructureMap(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.contact = None
-        """ Contact details for the publisher.
-        List of `ContactDetail` items (represented as `dict` in JSON). """
-
-        self.copyright = None
-        """ Use and/or publishing restrictions.
+        self.url = None
+        """ Canonical identifier for this structure map, represented as a URI
+        (globally unique).
         Type `str`. """
-
-        self.date = None
-        """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
-
-        self.description = None
-        """ Natural language description of the structure map.
-        Type `str`. """
-
-        self.experimental = None
-        """ For testing purposes, not real usage.
-        Type `bool`. """
-
-        self.group = None
-        """ Named sections for reader convenience.
-        List of `StructureMapGroup` items (represented as `dict` in JSON). """
 
         self.identifier = None
         """ Additional identifier for the structure map.
         List of `Identifier` items (represented as `dict` in JSON). """
 
-        self.import_fhir = None
-        """ Other maps used by this map (canonical URLs).
-        List of `str` items. """
-
-        self.jurisdiction = None
-        """ Intended jurisdiction for structure map (if applicable).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self.version = None
+        """ Business version of the structure map.
+        Type `str`. """
 
         self.name = None
         """ Name for this structure map (computer friendly).
         Type `str`. """
 
-        self.publisher = None
-        """ Name of the publisher (organization or individual).
-        Type `str`. """
-
-        self.purpose = None
-        """ Why this structure map is defined.
+        self.title = None
+        """ Name for this structure map (human friendly).
         Type `str`. """
 
         self.status = None
         """ draft | active | retired | unknown.
         Type `str`. """
 
-        self.structure = None
-        """ Structure Definition used by this map.
-        List of `StructureMapStructure` items (represented as `dict` in JSON). """
+        self.experimental = None
+        """ For testing purposes, not real usage.
+        Type `bool`. """
 
-        self.title = None
-        """ Name for this structure map (human friendly).
+        self.date = None
+        """ Date last changed.
+        Type `FHIRDate` (represented as `str` in JSON). """
+
+        self.publisher = None
+        """ Name of the publisher (organization or individual).
         Type `str`. """
 
-        self.url = None
-        """ Canonical identifier for this structure map, represented as a URI
-        (globally unique).
+        self.contact = None
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+
+        self.description = None
+        """ Natural language description of the structure map.
         Type `str`. """
 
         self.useContext = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
 
-        self.version = None
-        """ Business version of the structure map.
+        self.jurisdiction = None
+        """ Intended jurisdiction for structure map (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+
+        self.purpose = None
+        """ Why this structure map is defined.
         Type `str`. """
+
+        self.copyright = None
+        """ Use and/or publishing restrictions.
+        Type `str`. """
+
+        self.structure = None
+        """ Structure Definition used by this map.
+        List of `StructureMapStructure` items (represented as `dict` in JSON). """
+
+        self.import_fhir = None
+        """ Other maps used by this map (canonical URLs).
+        List of `str` items. """
+
+        self.group = None
+        """ Named sections for reader convenience.
+        List of `StructureMapGroup` items (represented as `dict` in JSON). """
 
         super(StructureMap, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(StructureMap, self).elementProperties()
         js.extend([
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
-            ("experimental", "experimental", bool, False, None, False),
-            ("group", "group", StructureMapGroup, True, None, True),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("import_fhir", "import", str, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", str, False, None, True),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("structure", "structure", StructureMapStructure, True, None, False),
-            ("title", "title", str, False, None, False),
             ("url", "url", str, False, None, True),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("version", "version", str, False, None, False),
+            ("name", "name", str, False, None, True),
+            ("title", "title", str, False, None, False),
+            ("status", "status", PublicationStatus.str, False, None, True),
+            ("experimental", "experimental", bool, False, None, False),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("publisher", "publisher", str, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("description", "description", str, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("purpose", "purpose", str, False, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("structure", "structure", StructureMapStructure, True, None, False),
+            ("import_fhir", "import", str, True, None, False),
+            ("group", "group", StructureMapGroup, True, None, True),
         ])
         return js
 
@@ -132,8 +132,6 @@ class StructureMapGroup(backboneelement.BackboneElement):
     maintenance.
     """
 
-    resource_type = "StructureMapGroup"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -142,41 +140,41 @@ class StructureMapGroup(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.documentation = None
-        """ Additional description/explanation for group.
+        self.name = None
+        """ Human-readable label.
         Type `str`. """
 
         self.extends = None
         """ Another group that this group adds rules to.
         Type `str`. """
 
+        self.typeMode = None
+        """ none | types | type-and-types.
+        Type `str`. """
+
+        self.documentation = None
+        """ Additional description/explanation for group.
+        Type `str`. """
+
         self.input = None
         """ Named instance provided when invoking the map.
         List of `StructureMapGroupInput` items (represented as `dict` in JSON). """
 
-        self.name = None
-        """ Human-readable label.
-        Type `str`. """
-
         self.rule = None
         """ Transform Rule from source to target.
         List of `StructureMapGroupRule` items (represented as `dict` in JSON). """
-
-        self.typeMode = None
-        """ none | types | type-and-types.
-        Type `str`. """
 
         super(StructureMapGroup, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(StructureMapGroup, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", str, False, None, False),
-            ("extends", "extends", str, False, None, False),
-            ("input", "input", StructureMapGroupInput, True, None, True),
             ("name", "name", str, False, None, True),
+            ("extends", "extends", str, False, None, False),
+            ("typeMode", "typeMode", StructureMapGroupTypeMode.str, False, None, True),
+            ("documentation", "documentation", str, False, None, False),
+            ("input", "input", StructureMapGroupInput, True, None, True),
             ("rule", "rule", StructureMapGroupRule, True, None, True),
-            ("typeMode", "typeMode", str, False, None, True),
         ])
         return js
 
@@ -188,8 +186,6 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
     the mapping is invoked.
     """
 
-    resource_type = "StructureMapGroupInput"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -197,14 +193,6 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-
-        self.documentation = None
-        """ Documentation for this instance of data.
-        Type `str`. """
-
-        self.mode = None
-        """ source | target.
-        Type `str`. """
 
         self.name = None
         """ Name for this instance of data.
@@ -214,15 +202,23 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
         """ Type for this instance of data.
         Type `str`. """
 
+        self.mode = None
+        """ source | target.
+        Type `str`. """
+
+        self.documentation = None
+        """ Documentation for this instance of data.
+        Type `str`. """
+
         super(StructureMapGroupInput, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(StructureMapGroupInput, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", str, False, None, False),
-            ("mode", "mode", str, False, None, True),
             ("name", "name", str, False, None, True),
             ("type", "type", str, False, None, False),
+            ("mode", "mode", StructureMapInputMode.str, False, None, True),
+            ("documentation", "documentation", str, False, None, False),
         ])
         return js
 
@@ -230,8 +226,6 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
 class StructureMapGroupRule(backboneelement.BackboneElement):
     """ Transform Rule from source to target.
     """
-
-    resource_type = "StructureMapGroupRule"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -241,21 +235,9 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.dependent = None
-        """ Which other rules to apply in the context of this rule.
-        List of `StructureMapGroupRuleDependent` items (represented as `dict` in JSON). """
-
-        self.documentation = None
-        """ Documentation for this instance of data.
-        Type `str`. """
-
         self.name = None
         """ Name of the rule for internal references.
         Type `str`. """
-
-        self.rule = None
-        """ Rules contained in this rule.
-        List of `StructureMapGroupRule` items (represented as `dict` in JSON). """
 
         self.source = None
         """ Source inputs to the mapping.
@@ -265,17 +247,29 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
         """ Content to create because of this mapping rule.
         List of `StructureMapGroupRuleTarget` items (represented as `dict` in JSON). """
 
+        self.rule = None
+        """ Rules contained in this rule.
+        List of `StructureMapGroupRule` items (represented as `dict` in JSON). """
+
+        self.dependent = None
+        """ Which other rules to apply in the context of this rule.
+        List of `StructureMapGroupRuleDependent` items (represented as `dict` in JSON). """
+
+        self.documentation = None
+        """ Documentation for this instance of data.
+        Type `str`. """
+
         super(StructureMapGroupRule, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(StructureMapGroupRule, self).elementProperties()
         js.extend([
-            ("dependent", "dependent", StructureMapGroupRuleDependent, True, None, False),
-            ("documentation", "documentation", str, False, None, False),
             ("name", "name", str, False, None, True),
-            ("rule", "rule", StructureMapGroupRule, True, None, False),
             ("source", "source", StructureMapGroupRuleSource, True, None, True),
             ("target", "target", StructureMapGroupRuleTarget, True, None, False),
+            ("rule", "rule", StructureMapGroupRule, True, None, False),
+            ("dependent", "dependent", StructureMapGroupRuleDependent, True, None, False),
+            ("documentation", "documentation", str, False, None, False),
         ])
         return js
 
@@ -283,8 +277,6 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
 class StructureMapGroupRuleDependent(backboneelement.BackboneElement):
     """ Which other rules to apply in the context of this rule.
     """
-
-    resource_type = "StructureMapGroupRuleDependent"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -317,8 +309,6 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
     """ Source inputs to the mapping.
     """
 
-    resource_type = "StructureMapGroupRuleSource"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -327,17 +317,96 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.check = None
-        """ FHIRPath expression  - must be true or the mapping engine throws an
-        error instead of completing.
-        Type `str`. """
-
-        self.condition = None
-        """ FHIRPath expression  - must be true or the rule does not apply.
-        Type `str`. """
-
         self.context = None
         """ Type or variable this rule applies to.
+        Type `str`. """
+
+        self.min = None
+        """ Specified minimum cardinality.
+        Type `int`. """
+
+        self.max = None
+        """ Specified maximum cardinality (number or *).
+        Type `str`. """
+
+        self.type = None
+        """ Rule only applies if source has this type.
+        Type `str`. """
+
+        self.defaultValueBase64Binary = None
+        """ Default value if no value exists.
+        Type `str`. """
+
+        self.defaultValueBoolean = None
+        """ Default value if no value exists.
+        Type `bool`. """
+
+        self.defaultValueCanonical = None
+        """ Default value if no value exists.
+        Type `str`. """
+
+        self.defaultValueCode = None
+        """ Default value if no value exists.
+        Type `str`. """
+
+        self.defaultValueDate = None
+        """ Default value if no value exists.
+        Type `FHIRDate` (represented as `str` in JSON). """
+
+        self.defaultValueDateTime = None
+        """ Default value if no value exists.
+        Type `FHIRDate` (represented as `str` in JSON). """
+
+        self.defaultValueDecimal = None
+        """ Default value if no value exists.
+        Type `float`. """
+
+        self.defaultValueId = None
+        """ Default value if no value exists.
+        Type `str`. """
+
+        self.defaultValueInstant = None
+        """ Default value if no value exists.
+        Type `FHIRDate` (represented as `str` in JSON). """
+
+        self.defaultValueInteger = None
+        """ Default value if no value exists.
+        Type `int`. """
+
+        self.defaultValueMarkdown = None
+        """ Default value if no value exists.
+        Type `str`. """
+
+        self.defaultValueOid = None
+        """ Default value if no value exists.
+        Type `str`. """
+
+        self.defaultValuePositiveInt = None
+        """ Default value if no value exists.
+        Type `int`. """
+
+        self.defaultValueString = None
+        """ Default value if no value exists.
+        Type `str`. """
+
+        self.defaultValueTime = None
+        """ Default value if no value exists.
+        Type `FHIRDate` (represented as `str` in JSON). """
+
+        self.defaultValueUnsignedInt = None
+        """ Default value if no value exists.
+        Type `int`. """
+
+        self.defaultValueUri = None
+        """ Default value if no value exists.
+        Type `str`. """
+
+        self.defaultValueUrl = None
+        """ Default value if no value exists.
+        Type `str`. """
+
+        self.defaultValueUuid = None
+        """ Default value if no value exists.
         Type `str`. """
 
         self.defaultValueAddress = None
@@ -356,22 +425,6 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `Attachment` (represented as `dict` in JSON). """
 
-        self.defaultValueBase64Binary = None
-        """ Default value if no value exists.
-        Type `str`. """
-
-        self.defaultValueBoolean = None
-        """ Default value if no value exists.
-        Type `bool`. """
-
-        self.defaultValueCanonical = None
-        """ Default value if no value exists.
-        Type `str`. """
-
-        self.defaultValueCode = None
-        """ Default value if no value exists.
-        Type `str`. """
-
         self.defaultValueCodeableConcept = None
         """ Default value if no value exists.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -380,97 +433,37 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `Coding` (represented as `dict` in JSON). """
 
-        self.defaultValueContactDetail = None
-        """ Default value if no value exists.
-        Type `ContactDetail` (represented as `dict` in JSON). """
-
         self.defaultValueContactPoint = None
         """ Default value if no value exists.
         Type `ContactPoint` (represented as `dict` in JSON). """
-
-        self.defaultValueContributor = None
-        """ Default value if no value exists.
-        Type `Contributor` (represented as `dict` in JSON). """
 
         self.defaultValueCount = None
         """ Default value if no value exists.
         Type `Count` (represented as `dict` in JSON). """
 
-        self.defaultValueDataRequirement = None
-        """ Default value if no value exists.
-        Type `DataRequirement` (represented as `dict` in JSON). """
-
-        self.defaultValueDate = None
-        """ Default value if no value exists.
-        Type `FHIRDate` (represented as `str` in JSON). """
-
-        self.defaultValueDateTime = None
-        """ Default value if no value exists.
-        Type `FHIRDate` (represented as `str` in JSON). """
-
-        self.defaultValueDecimal = None
-        """ Default value if no value exists.
-        Type `float`. """
-
         self.defaultValueDistance = None
         """ Default value if no value exists.
         Type `Distance` (represented as `dict` in JSON). """
-
-        self.defaultValueDosage = None
-        """ Default value if no value exists.
-        Type `Dosage` (represented as `dict` in JSON). """
 
         self.defaultValueDuration = None
         """ Default value if no value exists.
         Type `Duration` (represented as `dict` in JSON). """
 
-        self.defaultValueExpression = None
-        """ Default value if no value exists.
-        Type `Expression` (represented as `dict` in JSON). """
-
         self.defaultValueHumanName = None
         """ Default value if no value exists.
         Type `HumanName` (represented as `dict` in JSON). """
-
-        self.defaultValueId = None
-        """ Default value if no value exists.
-        Type `str`. """
 
         self.defaultValueIdentifier = None
         """ Default value if no value exists.
         Type `Identifier` (represented as `dict` in JSON). """
 
-        self.defaultValueInstant = None
-        """ Default value if no value exists.
-        Type `FHIRDate` (represented as `str` in JSON). """
-
-        self.defaultValueInteger = None
-        """ Default value if no value exists.
-        Type `int`. """
-
-        self.defaultValueMarkdown = None
-        """ Default value if no value exists.
-        Type `str`. """
-
         self.defaultValueMoney = None
         """ Default value if no value exists.
         Type `Money` (represented as `dict` in JSON). """
 
-        self.defaultValueOid = None
-        """ Default value if no value exists.
-        Type `str`. """
-
-        self.defaultValueParameterDefinition = None
-        """ Default value if no value exists.
-        Type `ParameterDefinition` (represented as `dict` in JSON). """
-
         self.defaultValuePeriod = None
         """ Default value if no value exists.
         Type `Period` (represented as `dict` in JSON). """
-
-        self.defaultValuePositiveInt = None
-        """ Default value if no value exists.
-        Type `int`. """
 
         self.defaultValueQuantity = None
         """ Default value if no value exists.
@@ -488,10 +481,6 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.defaultValueRelatedArtifact = None
-        """ Default value if no value exists.
-        Type `RelatedArtifact` (represented as `dict` in JSON). """
-
         self.defaultValueSampledData = None
         """ Default value if no value exists.
         Type `SampledData` (represented as `dict` in JSON). """
@@ -500,41 +489,49 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `Signature` (represented as `dict` in JSON). """
 
-        self.defaultValueString = None
-        """ Default value if no value exists.
-        Type `str`. """
-
-        self.defaultValueTime = None
-        """ Default value if no value exists.
-        Type `FHIRDate` (represented as `str` in JSON). """
-
         self.defaultValueTiming = None
         """ Default value if no value exists.
         Type `Timing` (represented as `dict` in JSON). """
+
+        self.defaultValueContactDetail = None
+        """ Default value if no value exists.
+        Type `ContactDetail` (represented as `dict` in JSON). """
+
+        self.defaultValueContributor = None
+        """ Default value if no value exists.
+        Type `Contributor` (represented as `dict` in JSON). """
+
+        self.defaultValueDataRequirement = None
+        """ Default value if no value exists.
+        Type `DataRequirement` (represented as `dict` in JSON). """
+
+        self.defaultValueExpression = None
+        """ Default value if no value exists.
+        Type `Expression` (represented as `dict` in JSON). """
+
+        self.defaultValueParameterDefinition = None
+        """ Default value if no value exists.
+        Type `ParameterDefinition` (represented as `dict` in JSON). """
+
+        self.defaultValueRelatedArtifact = None
+        """ Default value if no value exists.
+        Type `RelatedArtifact` (represented as `dict` in JSON). """
 
         self.defaultValueTriggerDefinition = None
         """ Default value if no value exists.
         Type `TriggerDefinition` (represented as `dict` in JSON). """
 
-        self.defaultValueUnsignedInt = None
-        """ Default value if no value exists.
-        Type `int`. """
-
-        self.defaultValueUri = None
-        """ Default value if no value exists.
-        Type `str`. """
-
-        self.defaultValueUrl = None
-        """ Default value if no value exists.
-        Type `str`. """
-
         self.defaultValueUsageContext = None
         """ Default value if no value exists.
         Type `UsageContext` (represented as `dict` in JSON). """
 
-        self.defaultValueUuid = None
+        self.defaultValueDosage = None
         """ Default value if no value exists.
-        Type `str`. """
+        Type `Dosage` (represented as `dict` in JSON). """
+
+        self.defaultValueMeta = None
+        """ Default value if no value exists.
+        Type `Meta` (represented as `dict` in JSON). """
 
         self.element = None
         """ Optional field for this source.
@@ -544,24 +541,21 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ first | not_first | last | not_last | only_one.
         Type `str`. """
 
-        self.logMessage = None
-        """ Message to put in log if source exists (FHIRPath).
-        Type `str`. """
-
-        self.max = None
-        """ Specified maximum cardinality (number or *).
-        Type `str`. """
-
-        self.min = None
-        """ Specified minimum cardinality.
-        Type `int`. """
-
-        self.type = None
-        """ Rule only applies if source has this type.
-        Type `str`. """
-
         self.variable = None
         """ Named context for field, if a field is specified.
+        Type `str`. """
+
+        self.condition = None
+        """ FHIRPath expression  - must be true or the rule does not apply.
+        Type `str`. """
+
+        self.check = None
+        """ FHIRPath expression  - must be true or the mapping engine throws an
+        error instead of completing.
+        Type `str`. """
+
+        self.logMessage = None
+        """ Message to put in log if source exists (FHIRPath).
         Type `str`. """
 
         super(StructureMapGroupRuleSource, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
@@ -569,65 +563,66 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureMapGroupRuleSource, self).elementProperties()
         js.extend([
-            ("check", "check", str, False, None, False),
-            ("condition", "condition", str, False, None, False),
             ("context", "context", str, False, None, True),
-            ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False),
-            ("defaultValueAge", "defaultValueAge", age.Age, False, "defaultValue", False),
-            ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False),
-            ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
+            ("min", "min", int, False, None, False),
+            ("max", "max", str, False, None, False),
+            ("type", "type", str, False, None, False),
             ("defaultValueBase64Binary", "defaultValueBase64Binary", str, False, "defaultValue", False),
             ("defaultValueBoolean", "defaultValueBoolean", bool, False, "defaultValue", False),
             ("defaultValueCanonical", "defaultValueCanonical", str, False, "defaultValue", False),
             ("defaultValueCode", "defaultValueCode", str, False, "defaultValue", False),
-            ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False),
-            ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False),
-            ("defaultValueContactDetail", "defaultValueContactDetail", contactdetail.ContactDetail, False, "defaultValue", False),
-            ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False),
-            ("defaultValueContributor", "defaultValueContributor", contributor.Contributor, False, "defaultValue", False),
-            ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
-            ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False),
             ("defaultValueDate", "defaultValueDate", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueDateTime", "defaultValueDateTime", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False),
-            ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
-            ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False),
-            ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False),
-            ("defaultValueExpression", "defaultValueExpression", expression.Expression, False, "defaultValue", False),
-            ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
             ("defaultValueId", "defaultValueId", str, False, "defaultValue", False),
-            ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
             ("defaultValueInstant", "defaultValueInstant", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
             ("defaultValueMarkdown", "defaultValueMarkdown", str, False, "defaultValue", False),
-            ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
             ("defaultValueOid", "defaultValueOid", str, False, "defaultValue", False),
-            ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False),
-            ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False),
             ("defaultValuePositiveInt", "defaultValuePositiveInt", int, False, "defaultValue", False),
+            ("defaultValueString", "defaultValueString", str, False, "defaultValue", False),
+            ("defaultValueTime", "defaultValueTime", fhirdate.FHIRDate, False, "defaultValue", False),
+            ("defaultValueUnsignedInt", "defaultValueUnsignedInt", int, False, "defaultValue", False),
+            ("defaultValueUri", "defaultValueUri", str, False, "defaultValue", False),
+            ("defaultValueUrl", "defaultValueUrl", str, False, "defaultValue", False),
+            ("defaultValueUuid", "defaultValueUuid", str, False, "defaultValue", False),
+            ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False),
+            ("defaultValueAge", "defaultValueAge", age.Age, False, "defaultValue", False),
+            ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False),
+            ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
+            ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False),
+            ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False),
+            ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False),
+            ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
+            ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
+            ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False),
+            ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
+            ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
+            ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
+            ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False),
             ("defaultValueQuantity", "defaultValueQuantity", quantity.Quantity, False, "defaultValue", False),
             ("defaultValueRange", "defaultValueRange", range.Range, False, "defaultValue", False),
             ("defaultValueRatio", "defaultValueRatio", ratio.Ratio, False, "defaultValue", False),
             ("defaultValueReference", "defaultValueReference", fhirreference.FHIRReference, False, "defaultValue", False),
-            ("defaultValueRelatedArtifact", "defaultValueRelatedArtifact", relatedartifact.RelatedArtifact, False, "defaultValue", False),
             ("defaultValueSampledData", "defaultValueSampledData", sampleddata.SampledData, False, "defaultValue", False),
             ("defaultValueSignature", "defaultValueSignature", signature.Signature, False, "defaultValue", False),
-            ("defaultValueString", "defaultValueString", str, False, "defaultValue", False),
-            ("defaultValueTime", "defaultValueTime", fhirdate.FHIRDate, False, "defaultValue", False),
             ("defaultValueTiming", "defaultValueTiming", timing.Timing, False, "defaultValue", False),
+            ("defaultValueContactDetail", "defaultValueContactDetail", contactdetail.ContactDetail, False, "defaultValue", False),
+            ("defaultValueContributor", "defaultValueContributor", contributor.Contributor, False, "defaultValue", False),
+            ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False),
+            ("defaultValueExpression", "defaultValueExpression", expression.Expression, False, "defaultValue", False),
+            ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False),
+            ("defaultValueRelatedArtifact", "defaultValueRelatedArtifact", relatedartifact.RelatedArtifact, False, "defaultValue", False),
             ("defaultValueTriggerDefinition", "defaultValueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "defaultValue", False),
-            ("defaultValueUnsignedInt", "defaultValueUnsignedInt", int, False, "defaultValue", False),
-            ("defaultValueUri", "defaultValueUri", str, False, "defaultValue", False),
-            ("defaultValueUrl", "defaultValueUrl", str, False, "defaultValue", False),
             ("defaultValueUsageContext", "defaultValueUsageContext", usagecontext.UsageContext, False, "defaultValue", False),
-            ("defaultValueUuid", "defaultValueUuid", str, False, "defaultValue", False),
+            ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False),
+            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
             ("element", "element", str, False, None, False),
-            ("listMode", "listMode", str, False, None, False),
-            ("logMessage", "logMessage", str, False, None, False),
-            ("max", "max", str, False, None, False),
-            ("min", "min", int, False, None, False),
-            ("type", "type", str, False, None, False),
+            ("listMode", "listMode", StructureMapSourceListMode.str, False, None, False),
             ("variable", "variable", str, False, None, False),
+            ("condition", "condition", str, False, None, False),
+            ("check", "check", str, False, None, False),
+            ("logMessage", "logMessage", str, False, None, False),
         ])
         return js
 
@@ -635,8 +630,6 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
 class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
     """ Content to create because of this mapping rule.
     """
-
-    resource_type = "StructureMapGroupRuleTarget"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -658,6 +651,10 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
         """ Field to create in the context.
         Type `str`. """
 
+        self.variable = None
+        """ Named context for field, if desired, and a field is specified.
+        Type `str`. """
+
         self.listMode = None
         """ first | share | last | collate.
         List of `str` items. """
@@ -666,17 +663,13 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
         """ Internal rule reference for shared list items.
         Type `str`. """
 
-        self.parameter = None
-        """ Parameters to the transform.
-        List of `StructureMapGroupRuleTargetParameter` items (represented as `dict` in JSON). """
-
         self.transform = None
         """ create | copy +.
         Type `str`. """
 
-        self.variable = None
-        """ Named context for field, if desired, and a field is specified.
-        Type `str`. """
+        self.parameter = None
+        """ Parameters to the transform.
+        List of `StructureMapGroupRuleTargetParameter` items (represented as `dict` in JSON). """
 
         super(StructureMapGroupRuleTarget, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
@@ -684,13 +677,13 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
         js = super(StructureMapGroupRuleTarget, self).elementProperties()
         js.extend([
             ("context", "context", str, False, None, False),
-            ("contextType", "contextType", str, False, None, False),
+            ("contextType", "contextType", StructureMapContextType.str, False, None, False),
             ("element", "element", str, False, None, False),
-            ("listMode", "listMode", str, True, None, False),
-            ("listRuleId", "listRuleId", str, False, None, False),
-            ("parameter", "parameter", StructureMapGroupRuleTargetParameter, True, None, False),
-            ("transform", "transform", str, False, None, False),
             ("variable", "variable", str, False, None, False),
+            ("listMode", "listMode", StructureMapTargetListMode.str, True, None, False),
+            ("listRuleId", "listRuleId", str, False, None, False),
+            ("transform", "transform", StructureMapTransform.str, False, None, False),
+            ("parameter", "parameter", StructureMapGroupRuleTargetParameter, True, None, False),
         ])
         return js
 
@@ -698,8 +691,6 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
 class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
     """ Parameters to the transform.
     """
-
-    resource_type = "StructureMapGroupRuleTargetParameter"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -709,36 +700,36 @@ class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.valueBoolean = None
-        """ Parameter value - variable or literal.
-        Type `bool`. """
-
-        self.valueDecimal = None
-        """ Parameter value - variable or literal.
-        Type `float`. """
-
         self.valueId = None
         """ Parameter value - variable or literal.
         Type `str`. """
+
+        self.valueString = None
+        """ Parameter value - variable or literal.
+        Type `str`. """
+
+        self.valueBoolean = None
+        """ Parameter value - variable or literal.
+        Type `bool`. """
 
         self.valueInteger = None
         """ Parameter value - variable or literal.
         Type `int`. """
 
-        self.valueString = None
+        self.valueDecimal = None
         """ Parameter value - variable or literal.
-        Type `str`. """
+        Type `float`. """
 
         super(StructureMapGroupRuleTargetParameter, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(StructureMapGroupRuleTargetParameter, self).elementProperties()
         js.extend([
-            ("valueBoolean", "valueBoolean", bool, False, "value", True),
-            ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueId", "valueId", str, False, "value", True),
-            ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueString", "valueString", str, False, "value", True),
+            ("valueBoolean", "valueBoolean", bool, False, "value", True),
+            ("valueInteger", "valueInteger", int, False, "value", True),
+            ("valueDecimal", "valueDecimal", float, False, "value", True),
         ])
         return js
 
@@ -750,8 +741,6 @@ class StructureMapStructure(backboneelement.BackboneElement):
     describe instances that are converted, or the instances that are produced.
     """
 
-    resource_type = "StructureMapStructure"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -759,6 +748,14 @@ class StructureMapStructure(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+
+        self.url = None
+        """ Canonical reference to structure definition.
+        Type `str`. """
+
+        self.mode = None
+        """ source | queried | target | produced.
+        Type `str`. """
 
         self.alias = None
         """ Name for type in this map.
@@ -768,28 +765,52 @@ class StructureMapStructure(backboneelement.BackboneElement):
         """ Documentation on use of structure.
         Type `str`. """
 
-        self.mode = None
-        """ source | queried | target | produced.
-        Type `str`. """
-
-        self.url = None
-        """ Canonical reference to structure definition.
-        Type `str`. """
-
         super(StructureMapStructure, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(StructureMapStructure, self).elementProperties()
         js.extend([
+            ("url", "url", str, False, None, True),
+            ("mode", "mode", StructureMapModelMode.str, False, None, True),
             ("alias", "alias", str, False, None, False),
             ("documentation", "documentation", str, False, None, False),
-            ("mode", "mode", str, False, None, True),
-            ("url", "url", str, False, None, True),
         ])
         return js
 
 
 import sys
+try:
+    from . import PublicationStatus
+except ImportError:
+    PublicationStatus = sys.modules[__package__ + '.PublicationStatus']
+try:
+    from . import StructureMapContextType
+except ImportError:
+    StructureMapContextType = sys.modules[__package__ + '.StructureMapContextType']
+try:
+    from . import StructureMapGroupTypeMode
+except ImportError:
+    StructureMapGroupTypeMode = sys.modules[__package__ + '.StructureMapGroupTypeMode']
+try:
+    from . import StructureMapInputMode
+except ImportError:
+    StructureMapInputMode = sys.modules[__package__ + '.StructureMapInputMode']
+try:
+    from . import StructureMapModelMode
+except ImportError:
+    StructureMapModelMode = sys.modules[__package__ + '.StructureMapModelMode']
+try:
+    from . import StructureMapSourceListMode
+except ImportError:
+    StructureMapSourceListMode = sys.modules[__package__ + '.StructureMapSourceListMode']
+try:
+    from . import StructureMapTargetListMode
+except ImportError:
+    StructureMapTargetListMode = sys.modules[__package__ + '.StructureMapTargetListMode']
+try:
+    from . import StructureMapTransform
+except ImportError:
+    StructureMapTransform = sys.modules[__package__ + '.StructureMapTransform']
 try:
     from . import address
 except ImportError:
@@ -866,6 +887,10 @@ try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import meta
+except ImportError:
+    meta = sys.modules[__package__ + '.meta']
 try:
     from . import money
 except ImportError:

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -25,21 +25,17 @@ class EnrollmentRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.candidate = None
-        """ The subject to be enrolled.
-        Type `FHIRReference` (represented as `dict` in JSON). """
+        self.identifier = None
+        """ Business Identifier.
+        List of `Identifier` items (represented as `dict` in JSON). """
 
-        self.coverage = None
-        """ Insurance information.
-        Type `FHIRReference` (represented as `dict` in JSON). """
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `str`. """
 
         self.created = None
         """ Creation date.
         Type `FHIRDate` (represented as `str` in JSON). """
-
-        self.identifier = None
-        """ Business Identifier.
-        List of `Identifier` items (represented as `dict` in JSON). """
 
         self.insurer = None
         """ Target.
@@ -49,27 +45,35 @@ class EnrollmentRequest(domainresource.DomainResource):
         """ Responsible practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.status = None
-        """ active | cancelled | draft | entered-in-error.
-        Type `str`. """
+        self.candidate = None
+        """ The subject to be enrolled.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.coverage = None
+        """ Insurance information.
+        Type `FHIRReference` (represented as `dict` in JSON). """
 
         super(EnrollmentRequest, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(EnrollmentRequest, self).elementProperties()
         js.extend([
-            ("candidate", "candidate", fhirreference.FHIRReference, False, None, False),
-            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("status", "status", FinancialResourceStatusCodes.str, False, None, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, False),
             ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, False),
+            ("candidate", "candidate", fhirreference.FHIRReference, False, None, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
 import sys
+try:
+    from . import FinancialResourceStatusCodes
+except ImportError:
+    FinancialResourceStatusCodes = sys.modules[__package__ + '.FinancialResourceStatusCodes']
 try:
     from . import fhirdate
 except ImportError:

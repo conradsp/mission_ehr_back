@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Subscription) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -28,46 +28,46 @@ class Subscription(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.channel = None
-        """ The channel on which to report matches to the criteria.
-        Type `SubscriptionChannel` (represented as `dict` in JSON). """
+        self.status = None
+        """ requested | active | error | off.
+        Type `str`. """
 
         self.contact = None
         """ Contact details for source (e.g. troubleshooting).
         List of `ContactPoint` items (represented as `dict` in JSON). """
 
-        self.criteria = None
-        """ Rule for server push.
-        Type `str`. """
-
         self.end = None
         """ When to automatically delete the subscription.
         Type `FHIRDate` (represented as `str` in JSON). """
-
-        self.error = None
-        """ Latest error note.
-        Type `str`. """
 
         self.reason = None
         """ Description of why this subscription was created.
         Type `str`. """
 
-        self.status = None
-        """ requested | active | error | off.
+        self.criteria = None
+        """ Rule for server push.
         Type `str`. """
+
+        self.error = None
+        """ Latest error note.
+        Type `str`. """
+
+        self.channel = None
+        """ The channel on which to report matches to the criteria.
+        Type `SubscriptionChannel` (represented as `dict` in JSON). """
 
         super(Subscription, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(Subscription, self).elementProperties()
         js.extend([
-            ("channel", "channel", SubscriptionChannel, False, None, True),
+            ("status", "status", SubscriptionStatus.str, False, None, True),
             ("contact", "contact", contactpoint.ContactPoint, True, None, False),
-            ("criteria", "criteria", str, False, None, True),
             ("end", "end", fhirdate.FHIRDate, False, None, False),
-            ("error", "error", str, False, None, False),
             ("reason", "reason", str, False, None, True),
-            ("status", "status", str, False, None, True),
+            ("criteria", "criteria", str, False, None, True),
+            ("error", "error", str, False, None, False),
+            ("channel", "channel", SubscriptionChannel, False, None, True),
         ])
         return js
 
@@ -81,8 +81,6 @@ class SubscriptionChannel(backboneelement.BackboneElement):
     the criteria.
     """
 
-    resource_type = "SubscriptionChannel"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -91,36 +89,44 @@ class SubscriptionChannel(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
+        self.type = None
+        """ rest-hook | websocket | email | sms | message.
+        Type `str`. """
+
         self.endpoint = None
         """ Where the channel points to.
+        Type `str`. """
+
+        self.payload = None
+        """ MIME type to send, or omit for no payload.
         Type `str`. """
 
         self.header = None
         """ Usage depends on the channel type.
         List of `str` items. """
 
-        self.payload = None
-        """ MIME type to send, or omit for no payload.
-        Type `str`. """
-
-        self.type = None
-        """ rest-hook | websocket | email | sms | message.
-        Type `str`. """
-
         super(SubscriptionChannel, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(SubscriptionChannel, self).elementProperties()
         js.extend([
+            ("type", "type", SubscriptionChannelType.str, False, None, True),
             ("endpoint", "endpoint", str, False, None, False),
-            ("header", "header", str, True, None, False),
             ("payload", "payload", str, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("header", "header", str, True, None, False),
         ])
         return js
 
 
 import sys
+try:
+    from . import SubscriptionChannelType
+except ImportError:
+    SubscriptionChannelType = sys.modules[__package__ + '.SubscriptionChannelType']
+try:
+    from . import SubscriptionStatus
+except ImportError:
+    SubscriptionStatus = sys.modules[__package__ + '.SubscriptionStatus']
 try:
     from . import contactpoint
 except ImportError:

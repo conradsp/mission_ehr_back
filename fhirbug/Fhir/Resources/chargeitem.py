@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ChargeItem) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/ChargeItem) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -30,53 +30,38 @@ class ChargeItem(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.account = None
-        """ Account to place this charge.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-
-        self.bodysite = None
-        """ Anatomical location, if relevant.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
-        self.code = None
-        """ A code that identifies the charge, like a billing code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-
-        self.context = None
-        """ Encounter / Episode associated with event.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.costCenter = None
-        """ Organization that has ownership of the (potential, future) revenue.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.definitionCanonical = None
-        """ Resource defining the code of this ChargeItem.
-        List of `str` items. """
+        self.identifier = None
+        """ Business Identifier for item.
+        List of `Identifier` items (represented as `dict` in JSON). """
 
         self.definitionUri = None
         """ Defining information about the code of this charge item.
         List of `str` items. """
 
-        self.enteredDate = None
-        """ Date the charge item was entered.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        self.definitionCanonical = None
+        """ Resource defining the code of this ChargeItem.
+        List of `str` items. """
 
-        self.enterer = None
-        """ Individual who was entering.
+        self.status = None
+        """ planned | billable | not-billable | aborted | billed | entered-in-
+        error | unknown.
+        Type `str`. """
+
+        self.partOf = None
+        """ Part of referenced ChargeItem.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+
+        self.code = None
+        """ A code that identifies the charge, like a billing code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.subject = None
+        """ Individual service was done for/to.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.factorOverride = None
-        """ Factor overriding the associated rules.
-        Type `float`. """
-
-        self.identifier = None
-        """ Business Identifier for item.
-        List of `Identifier` items (represented as `dict` in JSON). """
-
-        self.note = None
-        """ Comments made about the ChargeItem.
-        List of `Annotation` items (represented as `dict` in JSON). """
+        self.context = None
+        """ Encounter / Episode associated with event.
+        Type `FHIRReference` (represented as `dict` in JSON). """
 
         self.occurrenceDateTime = None
         """ When the charged service was applied.
@@ -90,14 +75,6 @@ class ChargeItem(domainresource.DomainResource):
         """ When the charged service was applied.
         Type `Timing` (represented as `dict` in JSON). """
 
-        self.overrideReason = None
-        """ Reason for overriding the list price/factor.
-        Type `str`. """
-
-        self.partOf = None
-        """ Part of referenced ChargeItem.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-
         self.performer = None
         """ Who performed charged service.
         List of `ChargeItemPerformer` items (represented as `dict` in JSON). """
@@ -106,42 +83,65 @@ class ChargeItem(domainresource.DomainResource):
         """ Organization providing the charged service.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.priceOverride = None
-        """ Price overriding the associated rules.
-        Type `Money` (represented as `dict` in JSON). """
+        self.requestingOrganization = None
+        """ Organization requesting the charged service.
+        Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.productCodeableConcept = None
-        """ Product charged.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-
-        self.productReference = None
-        """ Product charged.
+        self.costCenter = None
+        """ Organization that has ownership of the (potential, future) revenue.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
         self.quantity = None
         """ Quantity of which the charge item has been serviced.
         Type `Quantity` (represented as `dict` in JSON). """
 
+        self.bodysite = None
+        """ Anatomical location, if relevant.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+
+        self.factorOverride = None
+        """ Factor overriding the associated rules.
+        Type `float`. """
+
+        self.priceOverride = None
+        """ Price overriding the associated rules.
+        Type `Money` (represented as `dict` in JSON). """
+
+        self.overrideReason = None
+        """ Reason for overriding the list price/factor.
+        Type `str`. """
+
+        self.enterer = None
+        """ Individual who was entering.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.enteredDate = None
+        """ Date the charge item was entered.
+        Type `FHIRDate` (represented as `str` in JSON). """
+
         self.reason = None
         """ Why was the charged  service rendered?.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-
-        self.requestingOrganization = None
-        """ Organization requesting the charged service.
-        Type `FHIRReference` (represented as `dict` in JSON). """
 
         self.service = None
         """ Which rendered service is being charged?.
         List of `FHIRReference` items (represented as `dict` in JSON). """
 
-        self.status = None
-        """ planned | billable | not-billable | aborted | billed | entered-in-
-        error | unknown.
-        Type `str`. """
-
-        self.subject = None
-        """ Individual service was done for/to.
+        self.productReference = None
+        """ Product charged.
         Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.productCodeableConcept = None
+        """ Product charged.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.account = None
+        """ Account to place this charge.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+
+        self.note = None
+        """ Comments made about the ChargeItem.
+        List of `Annotation` items (represented as `dict` in JSON). """
 
         self.supportingInformation = None
         """ Further information supporting this charge.
@@ -152,34 +152,34 @@ class ChargeItem(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ChargeItem, self).elementProperties()
         js.extend([
-            ("account", "account", fhirreference.FHIRReference, True, None, False),
-            ("bodysite", "bodysite", codeableconcept.CodeableConcept, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("costCenter", "costCenter", fhirreference.FHIRReference, False, None, False),
-            ("definitionCanonical", "definitionCanonical", str, True, None, False),
-            ("definitionUri", "definitionUri", str, True, None, False),
-            ("enteredDate", "enteredDate", fhirdate.FHIRDate, False, None, False),
-            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
-            ("factorOverride", "factorOverride", float, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("definitionUri", "definitionUri", str, True, None, False),
+            ("definitionCanonical", "definitionCanonical", str, True, None, False),
+            ("status", "status", ChargeItemStatus.str, False, None, True),
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
-            ("overrideReason", "overrideReason", str, False, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("performer", "performer", ChargeItemPerformer, True, None, False),
             ("performingOrganization", "performingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("priceOverride", "priceOverride", money.Money, False, None, False),
-            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
-            ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("requestingOrganization", "requestingOrganization", fhirreference.FHIRReference, False, None, False),
+            ("costCenter", "costCenter", fhirreference.FHIRReference, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
+            ("bodysite", "bodysite", codeableconcept.CodeableConcept, True, None, False),
+            ("factorOverride", "factorOverride", float, False, None, False),
+            ("priceOverride", "priceOverride", money.Money, False, None, False),
+            ("overrideReason", "overrideReason", str, False, None, False),
+            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
+            ("enteredDate", "enteredDate", fhirdate.FHIRDate, False, None, False),
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("service", "service", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
+            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
+            ("account", "account", fhirreference.FHIRReference, True, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
         ])
         return js
@@ -193,8 +193,6 @@ class ChargeItemPerformer(backboneelement.BackboneElement):
     Indicates who or what performed or participated in the charged service.
     """
 
-    resource_type = "ChargeItemPerformer"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -203,26 +201,30 @@ class ChargeItemPerformer(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.actor = None
-        """ Individual who was performing.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
         self.function = None
         """ What type of performance was done.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.actor = None
+        """ Individual who was performing.
+        Type `FHIRReference` (represented as `dict` in JSON). """
 
         super(ChargeItemPerformer, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ChargeItemPerformer, self).elementProperties()
         js.extend([
-            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
             ("function", "function", codeableconcept.CodeableConcept, False, None, False),
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
 
 import sys
+try:
+    from . import ChargeItemStatus
+except ImportError:
+    ChargeItemStatus = sys.modules[__package__ + '.ChargeItemStatus']
 try:
     from . import annotation
 except ImportError:

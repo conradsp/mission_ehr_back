@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Claim) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/Claim) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -26,146 +26,146 @@ class Claim(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.accident = None
-        """ Details of the event.
-        Type `ClaimAccident` (represented as `dict` in JSON). """
-
-        self.billablePeriod = None
-        """ Relevant time frame for the claim.
-        Type `Period` (represented as `dict` in JSON). """
-
-        self.careTeam = None
-        """ Members of the care team.
-        List of `ClaimCareTeam` items (represented as `dict` in JSON). """
-
-        self.created = None
-        """ Resource creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
-
-        self.diagnosis = None
-        """ Pertinent diagnosis information.
-        List of `ClaimDiagnosis` items (represented as `dict` in JSON). """
-
-        self.enterer = None
-        """ Author of the claim.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.facility = None
-        """ Servicing facility.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.fundsReserve = None
-        """ For whom to reserve funds.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-
         self.identifier = None
         """ Business Identifier for claim.
         List of `Identifier` items (represented as `dict` in JSON). """
-
-        self.insurance = None
-        """ Patient insurance information.
-        List of `ClaimInsurance` items (represented as `dict` in JSON). """
-
-        self.insurer = None
-        """ Target.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.item = None
-        """ Product or service provided.
-        List of `ClaimItem` items (represented as `dict` in JSON). """
-
-        self.originalPrescription = None
-        """ Original prescription if superseded by fulfiller.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.patient = None
-        """ The recipient of the products and services.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.payee = None
-        """ Recipient of benefits payable.
-        Type `ClaimPayee` (represented as `dict` in JSON). """
-
-        self.prescription = None
-        """ Prescription authorizing services and products.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.priority = None
-        """ Desired processing ugency.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-
-        self.procedure = None
-        """ Clinical procedures performed.
-        List of `ClaimProcedure` items (represented as `dict` in JSON). """
-
-        self.provider = None
-        """ Party responsible for the claim.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.referral = None
-        """ Treatment referral.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.related = None
-        """ Prior or corollary claims.
-        List of `ClaimRelated` items (represented as `dict` in JSON). """
 
         self.status = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
 
-        self.subType = None
-        """ More granular claim type.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-
-        self.supportingInfo = None
-        """ Supporting information.
-        List of `ClaimSupportingInfo` items (represented as `dict` in JSON). """
-
-        self.total = None
-        """ Total claim cost.
-        Type `Money` (represented as `dict` in JSON). """
-
         self.type = None
         """ Category or discipline.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.subType = None
+        """ More granular claim type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
         self.use = None
         """ claim | preauthorization | predetermination.
         Type `str`. """
 
+        self.patient = None
+        """ The recipient of the products and services.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.billablePeriod = None
+        """ Relevant time frame for the claim.
+        Type `Period` (represented as `dict` in JSON). """
+
+        self.created = None
+        """ Resource creation date.
+        Type `FHIRDate` (represented as `str` in JSON). """
+
+        self.enterer = None
+        """ Author of the claim.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.insurer = None
+        """ Target.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.provider = None
+        """ Party responsible for the claim.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.priority = None
+        """ Desired processing ugency.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.fundsReserve = None
+        """ For whom to reserve funds.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.related = None
+        """ Prior or corollary claims.
+        List of `ClaimRelated` items (represented as `dict` in JSON). """
+
+        self.prescription = None
+        """ Prescription authorizing services and products.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.originalPrescription = None
+        """ Original prescription if superseded by fulfiller.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.payee = None
+        """ Recipient of benefits payable.
+        Type `ClaimPayee` (represented as `dict` in JSON). """
+
+        self.referral = None
+        """ Treatment referral.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.facility = None
+        """ Servicing facility.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.careTeam = None
+        """ Members of the care team.
+        List of `ClaimCareTeam` items (represented as `dict` in JSON). """
+
+        self.supportingInfo = None
+        """ Supporting information.
+        List of `ClaimSupportingInfo` items (represented as `dict` in JSON). """
+
+        self.diagnosis = None
+        """ Pertinent diagnosis information.
+        List of `ClaimDiagnosis` items (represented as `dict` in JSON). """
+
+        self.procedure = None
+        """ Clinical procedures performed.
+        List of `ClaimProcedure` items (represented as `dict` in JSON). """
+
+        self.insurance = None
+        """ Patient insurance information.
+        List of `ClaimInsurance` items (represented as `dict` in JSON). """
+
+        self.accident = None
+        """ Details of the event.
+        Type `ClaimAccident` (represented as `dict` in JSON). """
+
+        self.item = None
+        """ Product or service provided.
+        List of `ClaimItem` items (represented as `dict` in JSON). """
+
+        self.total = None
+        """ Total claim cost.
+        Type `Money` (represented as `dict` in JSON). """
+
         super(Claim, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(Claim, self).elementProperties()
         js.extend([
-            ("accident", "accident", ClaimAccident, False, None, False),
-            ("billablePeriod", "billablePeriod", period.Period, False, None, False),
-            ("careTeam", "careTeam", ClaimCareTeam, True, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
-            ("diagnosis", "diagnosis", ClaimDiagnosis, True, None, False),
-            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
-            ("facility", "facility", fhirreference.FHIRReference, False, None, False),
-            ("fundsReserve", "fundsReserve", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("insurance", "insurance", ClaimInsurance, True, None, True),
-            ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
-            ("item", "item", ClaimItem, True, None, False),
-            ("originalPrescription", "originalPrescription", fhirreference.FHIRReference, False, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("payee", "payee", ClaimPayee, False, None, False),
-            ("prescription", "prescription", fhirreference.FHIRReference, False, None, False),
-            ("priority", "priority", codeableconcept.CodeableConcept, False, None, True),
-            ("procedure", "procedure", ClaimProcedure, True, None, False),
-            ("provider", "provider", fhirreference.FHIRReference, False, None, True),
-            ("referral", "referral", fhirreference.FHIRReference, False, None, False),
-            ("related", "related", ClaimRelated, True, None, False),
-            ("status", "status", str, False, None, True),
-            ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
-            ("supportingInfo", "supportingInfo", ClaimSupportingInfo, True, None, False),
-            ("total", "total", money.Money, False, None, False),
+            ("status", "status", FinancialResourceStatusCodes.str, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("use", "use", str, False, None, True),
+            ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
+            ("use", "use", Use.str, False, None, True),
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("billablePeriod", "billablePeriod", period.Period, False, None, False),
+            ("created", "created", fhirdate.FHIRDate, False, None, True),
+            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
+            ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
+            ("provider", "provider", fhirreference.FHIRReference, False, None, True),
+            ("priority", "priority", codeableconcept.CodeableConcept, False, None, True),
+            ("fundsReserve", "fundsReserve", codeableconcept.CodeableConcept, False, None, False),
+            ("related", "related", ClaimRelated, True, None, False),
+            ("prescription", "prescription", fhirreference.FHIRReference, False, None, False),
+            ("originalPrescription", "originalPrescription", fhirreference.FHIRReference, False, None, False),
+            ("payee", "payee", ClaimPayee, False, None, False),
+            ("referral", "referral", fhirreference.FHIRReference, False, None, False),
+            ("facility", "facility", fhirreference.FHIRReference, False, None, False),
+            ("careTeam", "careTeam", ClaimCareTeam, True, None, False),
+            ("supportingInfo", "supportingInfo", ClaimSupportingInfo, True, None, False),
+            ("diagnosis", "diagnosis", ClaimDiagnosis, True, None, False),
+            ("procedure", "procedure", ClaimProcedure, True, None, False),
+            ("insurance", "insurance", ClaimInsurance, True, None, True),
+            ("accident", "accident", ClaimAccident, False, None, False),
+            ("item", "item", ClaimItem, True, None, False),
+            ("total", "total", money.Money, False, None, False),
         ])
         return js
 
@@ -179,8 +179,6 @@ class ClaimAccident(backboneelement.BackboneElement):
     products and services listed in the claim.
     """
 
-    resource_type = "ClaimAccident"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -193,6 +191,10 @@ class ClaimAccident(backboneelement.BackboneElement):
         """ When the incident occurred.
         Type `FHIRDate` (represented as `str` in JSON). """
 
+        self.type = None
+        """ The nature of the accident.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
         self.locationAddress = None
         """ Where the event occurred.
         Type `Address` (represented as `dict` in JSON). """
@@ -201,19 +203,15 @@ class ClaimAccident(backboneelement.BackboneElement):
         """ Where the event occurred.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.type = None
-        """ The nature of the accident.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-
         super(ClaimAccident, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ClaimAccident, self).elementProperties()
         js.extend([
             ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),
             ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -224,8 +222,6 @@ class ClaimCareTeam(backboneelement.BackboneElement):
     The members of the team who provided the products and services.
     """
 
-    resource_type = "ClaimCareTeam"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -234,13 +230,13 @@ class ClaimCareTeam(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
+        self.sequence = None
+        """ Order of care team.
+        Type `int`. """
+
         self.provider = None
         """ Practitioner or organization.
         Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.qualification = None
-        """ Practitioner credential or specialization.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         self.responsible = None
         """ Indicator of the lead practitioner.
@@ -250,20 +246,20 @@ class ClaimCareTeam(backboneelement.BackboneElement):
         """ Function within the team.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
-        self.sequence = None
-        """ Order of care team.
-        Type `int`. """
+        self.qualification = None
+        """ Practitioner credential or specialization.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         super(ClaimCareTeam, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ClaimCareTeam, self).elementProperties()
         js.extend([
+            ("sequence", "sequence", int, False, None, True),
             ("provider", "provider", fhirreference.FHIRReference, False, None, True),
-            ("qualification", "qualification", codeableconcept.CodeableConcept, False, None, False),
             ("responsible", "responsible", bool, False, None, False),
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("qualification", "qualification", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -274,8 +270,6 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
     Information about diagnoses relevant to the claim items.
     """
 
-    resource_type = "ClaimDiagnosis"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -283,6 +277,10 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+
+        self.sequence = None
+        """ Diagnosis instance identifier.
+        Type `int`. """
 
         self.diagnosisCodeableConcept = None
         """ Nature of illness or problem.
@@ -292,6 +290,10 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
         """ Nature of illness or problem.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
+        self.type = None
+        """ Timing or nature of the diagnosis.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+
         self.onAdmission = None
         """ Present on admission.
         Type `CodeableConcept` (represented as `dict` in JSON). """
@@ -300,25 +302,17 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
         """ Package billing code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
-        self.sequence = None
-        """ Diagnosis instance identifier.
-        Type `int`. """
-
-        self.type = None
-        """ Timing or nature of the diagnosis.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
         super(ClaimDiagnosis, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ClaimDiagnosis, self).elementProperties()
         js.extend([
+            ("sequence", "sequence", int, False, None, True),
             ("diagnosisCodeableConcept", "diagnosisCodeableConcept", codeableconcept.CodeableConcept, False, "diagnosis", True),
             ("diagnosisReference", "diagnosisReference", fhirreference.FHIRReference, False, "diagnosis", True),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
             ("onAdmission", "onAdmission", codeableconcept.CodeableConcept, False, None, False),
             ("packageCode", "packageCode", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -330,8 +324,6 @@ class ClaimInsurance(backboneelement.BackboneElement):
     services specified on the claim.
     """
 
-    resource_type = "ClaimInsurance"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -340,17 +332,9 @@ class ClaimInsurance(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.businessArrangement = None
-        """ Additional provider contract number.
-        Type `str`. """
-
-        self.claimResponse = None
-        """ Adjudication results.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.coverage = None
-        """ Insurance information.
-        Type `FHIRReference` (represented as `dict` in JSON). """
+        self.sequence = None
+        """ Insurance instance identifier.
+        Type `int`. """
 
         self.focal = None
         """ Coverage to be used for adjudication.
@@ -360,26 +344,34 @@ class ClaimInsurance(backboneelement.BackboneElement):
         """ Pre-assigned Claim number.
         Type `Identifier` (represented as `dict` in JSON). """
 
+        self.coverage = None
+        """ Insurance information.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.businessArrangement = None
+        """ Additional provider contract number.
+        Type `str`. """
+
         self.preAuthRef = None
         """ Prior authorization reference number.
         List of `str` items. """
 
-        self.sequence = None
-        """ Insurance instance identifier.
-        Type `int`. """
+        self.claimResponse = None
+        """ Adjudication results.
+        Type `FHIRReference` (represented as `dict` in JSON). """
 
         super(ClaimInsurance, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ClaimInsurance, self).elementProperties()
         js.extend([
-            ("businessArrangement", "businessArrangement", str, False, None, False),
-            ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
-            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
+            ("sequence", "sequence", int, False, None, True),
             ("focal", "focal", bool, False, None, True),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
+            ("businessArrangement", "businessArrangement", str, False, None, False),
             ("preAuthRef", "preAuthRef", str, True, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -391,8 +383,6 @@ class ClaimItem(backboneelement.BackboneElement):
     which can each be a simple items or groups of sub-details.
     """
 
-    resource_type = "ClaimItem"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -401,81 +391,45 @@ class ClaimItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.bodySite = None
-        """ Anatomical location.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.sequence = None
+        """ Item instance identifier.
+        Type `int`. """
 
         self.careTeamSequence = None
         """ Applicable careTeam members.
         List of `int` items. """
 
-        self.category = None
-        """ Benefit classification.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-
-        self.detail = None
-        """ Product or service provided.
-        List of `ClaimItemDetail` items (represented as `dict` in JSON). """
-
         self.diagnosisSequence = None
         """ Applicable diagnoses.
         List of `int` items. """
-
-        self.encounter = None
-        """ Encounters related to this billed item.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-
-        self.factor = None
-        """ Price scaling factor.
-        Type `float`. """
-
-        self.informationSequence = None
-        """ Applicable exception and supporting information.
-        List of `int` items. """
-
-        self.locationAddress = None
-        """ Place of service or where product was supplied.
-        Type `Address` (represented as `dict` in JSON). """
-
-        self.locationCodeableConcept = None
-        """ Place of service or where product was supplied.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-
-        self.locationReference = None
-        """ Place of service or where product was supplied.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.modifier = None
-        """ Product or service billing modifiers.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
-        self.net = None
-        """ Total item cost.
-        Type `Money` (represented as `dict` in JSON). """
 
         self.procedureSequence = None
         """ Applicable procedures.
         List of `int` items. """
 
-        self.productOrService = None
-        """ Billing, service, product, or drug code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-
-        self.programCode = None
-        """ Program the product or service is provided under.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
-        self.quantity = None
-        """ Count of products or services.
-        Type `Quantity` (represented as `dict` in JSON). """
+        self.informationSequence = None
+        """ Applicable exception and supporting information.
+        List of `int` items. """
 
         self.revenue = None
         """ Revenue or cost center code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
-        self.sequence = None
-        """ Item instance identifier.
-        Type `int`. """
+        self.category = None
+        """ Benefit classification.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.modifier = None
+        """ Product or service billing modifiers.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+
+        self.programCode = None
+        """ Program the product or service is provided under.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
 
         self.servicedDate = None
         """ Date or dates of service or product delivery.
@@ -485,47 +439,83 @@ class ClaimItem(backboneelement.BackboneElement):
         """ Date or dates of service or product delivery.
         Type `Period` (represented as `dict` in JSON). """
 
-        self.subSite = None
-        """ Anatomical sub-location.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self.locationCodeableConcept = None
+        """ Place of service or where product was supplied.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.locationAddress = None
+        """ Place of service or where product was supplied.
+        Type `Address` (represented as `dict` in JSON). """
+
+        self.locationReference = None
+        """ Place of service or where product was supplied.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.quantity = None
+        """ Count of products or services.
+        Type `Quantity` (represented as `dict` in JSON). """
+
+        self.unitPrice = None
+        """ Fee, charge or cost per item.
+        Type `Money` (represented as `dict` in JSON). """
+
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
+
+        self.net = None
+        """ Total item cost.
+        Type `Money` (represented as `dict` in JSON). """
 
         self.udi = None
         """ Unique device identifier.
         List of `FHIRReference` items (represented as `dict` in JSON). """
 
-        self.unitPrice = None
-        """ Fee, charge or cost per item.
-        Type `Money` (represented as `dict` in JSON). """
+        self.bodySite = None
+        """ Anatomical location.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.subSite = None
+        """ Anatomical sub-location.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+
+        self.encounter = None
+        """ Encounters related to this billed item.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+
+        self.detail = None
+        """ Product or service provided.
+        List of `ClaimItemDetail` items (represented as `dict` in JSON). """
 
         super(ClaimItem, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ClaimItem, self).elementProperties()
         js.extend([
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
-            ("careTeamSequence", "careTeamSequence", int, True, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("detail", "detail", ClaimItemDetail, True, None, False),
-            ("diagnosisSequence", "diagnosisSequence", int, True, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, True, None, False),
-            ("factor", "factor", float, False, None, False),
-            ("informationSequence", "informationSequence", int, True, None, False),
-            ("locationAddress", "locationAddress", address.Address, False, "location", False),
-            ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False),
-            ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
-            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
-            ("net", "net", money.Money, False, None, False),
-            ("procedureSequence", "procedureSequence", int, True, None, False),
-            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
-            ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("sequence", "sequence", int, False, None, True),
+            ("careTeamSequence", "careTeamSequence", int, True, None, False),
+            ("diagnosisSequence", "diagnosisSequence", int, True, None, False),
+            ("procedureSequence", "procedureSequence", int, True, None, False),
+            ("informationSequence", "informationSequence", int, True, None, False),
+            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
+            ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
-            ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False),
-            ("udi", "udi", fhirreference.FHIRReference, True, None, False),
+            ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False),
+            ("locationAddress", "locationAddress", address.Address, False, "location", False),
+            ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
+            ("factor", "factor", float, False, None, False),
+            ("net", "net", money.Money, False, None, False),
+            ("udi", "udi", fhirreference.FHIRReference, True, None, False),
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
+            ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False),
+            ("encounter", "encounter", fhirreference.FHIRReference, True, None, False),
+            ("detail", "detail", ClaimItemDetail, True, None, False),
         ])
         return js
 
@@ -537,8 +527,6 @@ class ClaimItemDetail(backboneelement.BackboneElement):
     sub-details which are simple items.
     """
 
-    resource_type = "ClaimItemDetail"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -547,25 +535,25 @@ class ClaimItemDetail(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
+        self.sequence = None
+        """ Item instance identifier.
+        Type `int`. """
+
+        self.revenue = None
+        """ Revenue or cost center code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
         self.category = None
         """ Benefit classification.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
-        self.factor = None
-        """ Price scaling factor.
-        Type `float`. """
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         self.modifier = None
         """ Service/Product billing modifiers.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-
-        self.net = None
-        """ Total item cost.
-        Type `Money` (represented as `dict` in JSON). """
-
-        self.productOrService = None
-        """ Billing, service, product, or drug code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         self.programCode = None
         """ Program the product or service is provided under.
@@ -575,43 +563,43 @@ class ClaimItemDetail(backboneelement.BackboneElement):
         """ Count of products or services.
         Type `Quantity` (represented as `dict` in JSON). """
 
-        self.revenue = None
-        """ Revenue or cost center code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.unitPrice = None
+        """ Fee, charge or cost per item.
+        Type `Money` (represented as `dict` in JSON). """
 
-        self.sequence = None
-        """ Item instance identifier.
-        Type `int`. """
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
 
-        self.subDetail = None
-        """ Product or service provided.
-        List of `ClaimItemDetailSubDetail` items (represented as `dict` in JSON). """
+        self.net = None
+        """ Total item cost.
+        Type `Money` (represented as `dict` in JSON). """
 
         self.udi = None
         """ Unique device identifier.
         List of `FHIRReference` items (represented as `dict` in JSON). """
 
-        self.unitPrice = None
-        """ Fee, charge or cost per item.
-        Type `Money` (represented as `dict` in JSON). """
+        self.subDetail = None
+        """ Product or service provided.
+        List of `ClaimItemDetailSubDetail` items (represented as `dict` in JSON). """
 
         super(ClaimItemDetail, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ClaimItemDetail, self).elementProperties()
         js.extend([
+            ("sequence", "sequence", int, False, None, True),
+            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("factor", "factor", float, False, None, False),
-            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
-            ("net", "net", money.Money, False, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
-            ("subDetail", "subDetail", ClaimItemDetailSubDetail, True, None, False),
-            ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
+            ("factor", "factor", float, False, None, False),
+            ("net", "net", money.Money, False, None, False),
+            ("udi", "udi", fhirreference.FHIRReference, True, None, False),
+            ("subDetail", "subDetail", ClaimItemDetailSubDetail, True, None, False),
         ])
         return js
 
@@ -623,8 +611,6 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
     sub-details which are simple items.
     """
 
-    resource_type = "ClaimItemDetailSubDetail"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -633,25 +619,25 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
+        self.sequence = None
+        """ Item instance identifier.
+        Type `int`. """
+
+        self.revenue = None
+        """ Revenue or cost center code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
         self.category = None
         """ Benefit classification.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
-        self.factor = None
-        """ Price scaling factor.
-        Type `float`. """
+        self.productOrService = None
+        """ Billing, service, product, or drug code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         self.modifier = None
         """ Service/Product billing modifiers.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
-
-        self.net = None
-        """ Total item cost.
-        Type `Money` (represented as `dict` in JSON). """
-
-        self.productOrService = None
-        """ Billing, service, product, or drug code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         self.programCode = None
         """ Program the product or service is provided under.
@@ -661,38 +647,38 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
         """ Count of products or services.
         Type `Quantity` (represented as `dict` in JSON). """
 
-        self.revenue = None
-        """ Revenue or cost center code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.unitPrice = None
+        """ Fee, charge or cost per item.
+        Type `Money` (represented as `dict` in JSON). """
 
-        self.sequence = None
-        """ Item instance identifier.
-        Type `int`. """
+        self.factor = None
+        """ Price scaling factor.
+        Type `float`. """
+
+        self.net = None
+        """ Total item cost.
+        Type `Money` (represented as `dict` in JSON). """
 
         self.udi = None
         """ Unique device identifier.
         List of `FHIRReference` items (represented as `dict` in JSON). """
-
-        self.unitPrice = None
-        """ Fee, charge or cost per item.
-        Type `Money` (represented as `dict` in JSON). """
 
         super(ClaimItemDetailSubDetail, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ClaimItemDetailSubDetail, self).elementProperties()
         js.extend([
+            ("sequence", "sequence", int, False, None, True),
+            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("factor", "factor", float, False, None, False),
-            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
-            ("net", "net", money.Money, False, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
-            ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
+            ("factor", "factor", float, False, None, False),
+            ("net", "net", money.Money, False, None, False),
+            ("udi", "udi", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 
@@ -704,8 +690,6 @@ class ClaimPayee(backboneelement.BackboneElement):
     to the terms of the policy.
     """
 
-    resource_type = "ClaimPayee"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -714,21 +698,21 @@ class ClaimPayee(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.party = None
-        """ Recipient reference.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
         self.type = None
         """ Category of recipient.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.party = None
+        """ Recipient reference.
+        Type `FHIRReference` (represented as `dict` in JSON). """
 
         super(ClaimPayee, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ClaimPayee, self).elementProperties()
         js.extend([
-            ("party", "party", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
+            ("party", "party", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -740,8 +724,6 @@ class ClaimProcedure(backboneelement.BackboneElement):
     claim.
     """
 
-    resource_type = "ClaimProcedure"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -749,6 +731,14 @@ class ClaimProcedure(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+
+        self.sequence = None
+        """ Procedure instance identifier.
+        Type `int`. """
+
+        self.type = None
+        """ Category of Procedure.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
 
         self.date = None
         """ When the procedure was performed.
@@ -762,14 +752,6 @@ class ClaimProcedure(backboneelement.BackboneElement):
         """ Specific clinical procedure.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.sequence = None
-        """ Procedure instance identifier.
-        Type `int`. """
-
-        self.type = None
-        """ Category of Procedure.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
         self.udi = None
         """ Unique device identifier.
         List of `FHIRReference` items (represented as `dict` in JSON). """
@@ -779,11 +761,11 @@ class ClaimProcedure(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimProcedure, self).elementProperties()
         js.extend([
+            ("sequence", "sequence", int, False, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, False),
             ("procedureCodeableConcept", "procedureCodeableConcept", codeableconcept.CodeableConcept, False, "procedure", True),
             ("procedureReference", "procedureReference", fhirreference.FHIRReference, False, "procedure", True),
-            ("sequence", "sequence", int, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
         ])
         return js
@@ -795,8 +777,6 @@ class ClaimRelated(backboneelement.BackboneElement):
     Other claims which are related to this claim such as prior submissions or
     claims for related services or for the same event.
     """
-
-    resource_type = "ClaimRelated"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -810,13 +790,13 @@ class ClaimRelated(backboneelement.BackboneElement):
         """ Reference to the related claim.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.reference = None
-        """ File or case reference.
-        Type `Identifier` (represented as `dict` in JSON). """
-
         self.relationship = None
         """ How the reference claim is related.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.reference = None
+        """ File or case reference.
+        Type `Identifier` (represented as `dict` in JSON). """
 
         super(ClaimRelated, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
@@ -824,8 +804,8 @@ class ClaimRelated(backboneelement.BackboneElement):
         js = super(ClaimRelated, self).elementProperties()
         js.extend([
             ("claim", "claim", fhirreference.FHIRReference, False, None, False),
-            ("reference", "reference", identifier.Identifier, False, None, False),
             ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, False),
+            ("reference", "reference", identifier.Identifier, False, None, False),
         ])
         return js
 
@@ -837,8 +817,6 @@ class ClaimSupportingInfo(backboneelement.BackboneElement):
     the condition, situation, prior or concurrent issues.
     """
 
-    resource_type = "ClaimSupportingInfo"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -846,6 +824,10 @@ class ClaimSupportingInfo(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+
+        self.sequence = None
+        """ Information instance identifier.
+        Type `int`. """
 
         self.category = None
         """ Classification of the supplied information.
@@ -855,14 +837,6 @@ class ClaimSupportingInfo(backboneelement.BackboneElement):
         """ Type of information.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
-        self.reason = None
-        """ Explanation for the information.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-
-        self.sequence = None
-        """ Information instance identifier.
-        Type `int`. """
-
         self.timingDate = None
         """ When it occurred.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -871,47 +845,59 @@ class ClaimSupportingInfo(backboneelement.BackboneElement):
         """ When it occurred.
         Type `Period` (represented as `dict` in JSON). """
 
-        self.valueAttachment = None
-        """ Data to be provided.
-        Type `Attachment` (represented as `dict` in JSON). """
-
         self.valueBoolean = None
         """ Data to be provided.
         Type `bool`. """
+
+        self.valueString = None
+        """ Data to be provided.
+        Type `str`. """
 
         self.valueQuantity = None
         """ Data to be provided.
         Type `Quantity` (represented as `dict` in JSON). """
 
+        self.valueAttachment = None
+        """ Data to be provided.
+        Type `Attachment` (represented as `dict` in JSON). """
+
         self.valueReference = None
         """ Data to be provided.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.valueString = None
-        """ Data to be provided.
-        Type `str`. """
+        self.reason = None
+        """ Explanation for the information.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         super(ClaimSupportingInfo, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(ClaimSupportingInfo, self).elementProperties()
         js.extend([
+            ("sequence", "sequence", int, False, None, True),
             ("category", "category", codeableconcept.CodeableConcept, False, None, True),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
             ("timingDate", "timingDate", fhirdate.FHIRDate, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
-            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
-            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
             ("valueString", "valueString", str, False, "value", False),
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
 
 import sys
+try:
+    from . import FinancialResourceStatusCodes
+except ImportError:
+    FinancialResourceStatusCodes = sys.modules[__package__ + '.FinancialResourceStatusCodes']
+try:
+    from . import Use
+except ImportError:
+    Use = sys.modules[__package__ + '.Use']
 try:
     from . import address
 except ImportError:

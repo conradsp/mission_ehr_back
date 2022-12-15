@@ -222,7 +222,7 @@ class FHIRSearchParamOperatorHandler(FHIRSearchParamHandler):
     
     def apply(self, param):
         if self.key not in self.__class__.operators:
-            raise Exception('Unknown operator "{}" for "{}"'.format(self.key, parent.name))
+            raise Exception('Unknown operator "{}" for "{}"'.format(self.key, self.parent.name))
         param.value = self.__class__.operators[self.key] + self.value
 
 

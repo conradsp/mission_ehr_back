@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Ratio) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/Ratio) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -15,8 +15,6 @@ class Ratio(element.Element):
     denominator.
     """
 
-    resource_type = "Ratio"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -25,12 +23,12 @@ class Ratio(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.denominator = None
-        """ Denominator value.
-        Type `Quantity` (represented as `dict` in JSON). """
-
         self.numerator = None
         """ Numerator value.
+        Type `Quantity` (represented as `dict` in JSON). """
+
+        self.denominator = None
+        """ Denominator value.
         Type `Quantity` (represented as `dict` in JSON). """
 
         super(Ratio, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
@@ -38,8 +36,8 @@ class Ratio(element.Element):
     def elementProperties(self):
         js = super(Ratio, self).elementProperties()
         js.extend([
-            ("denominator", "denominator", quantity.Quantity, False, None, False),
             ("numerator", "numerator", quantity.Quantity, False, None, False),
+            ("denominator", "denominator", quantity.Quantity, False, None, False),
         ])
         return js
 

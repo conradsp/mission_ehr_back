@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SpecimenDefinition) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/SpecimenDefinition) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -24,13 +24,13 @@ class SpecimenDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.collection = None
-        """ Specimen collection procedure.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
         self.identifier = None
         """ Business identifier of a kind of specimen.
         Type `Identifier` (represented as `dict` in JSON). """
+
+        self.typeCollected = None
+        """ Kind of material to collect.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         self.patientPreparation = None
         """ Patient preparation for collection.
@@ -40,9 +40,9 @@ class SpecimenDefinition(domainresource.DomainResource):
         """ Time aspect for collection.
         Type `str`. """
 
-        self.typeCollected = None
-        """ Kind of material to collect.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.collection = None
+        """ Specimen collection procedure.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
 
         self.typeTested = None
         """ Specimen in container intended for testing by lab.
@@ -53,11 +53,11 @@ class SpecimenDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SpecimenDefinition, self).elementProperties()
         js.extend([
-            ("collection", "collection", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("typeCollected", "typeCollected", codeableconcept.CodeableConcept, False, None, False),
             ("patientPreparation", "patientPreparation", codeableconcept.CodeableConcept, True, None, False),
             ("timeAspect", "timeAspect", str, False, None, False),
-            ("typeCollected", "typeCollected", codeableconcept.CodeableConcept, False, None, False),
+            ("collection", "collection", codeableconcept.CodeableConcept, True, None, False),
             ("typeTested", "typeTested", SpecimenDefinitionTypeTested, True, None, False),
         ])
         return js
@@ -71,8 +71,6 @@ class SpecimenDefinitionTypeTested(backboneelement.BackboneElement):
     Specimen conditioned in a container as expected by the testing laboratory.
     """
 
-    resource_type = "SpecimenDefinitionTypeTested"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -81,25 +79,21 @@ class SpecimenDefinitionTypeTested(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.container = None
-        """ The specimen's container.
-        Type `SpecimenDefinitionTypeTestedContainer` (represented as `dict` in JSON). """
-
-        self.handling = None
-        """ Specimen handling before testing.
-        List of `SpecimenDefinitionTypeTestedHandling` items (represented as `dict` in JSON). """
-
         self.isDerived = None
         """ Primary or secondary specimen.
         Type `bool`. """
+
+        self.type = None
+        """ Type of intended specimen.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         self.preference = None
         """ preferred | alternate.
         Type `str`. """
 
-        self.rejectionCriterion = None
-        """ Rejection criterion.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self.container = None
+        """ The specimen's container.
+        Type `SpecimenDefinitionTypeTestedContainer` (represented as `dict` in JSON). """
 
         self.requirement = None
         """ Specimen requirements.
@@ -109,23 +103,27 @@ class SpecimenDefinitionTypeTested(backboneelement.BackboneElement):
         """ Specimen retention time.
         Type `Duration` (represented as `dict` in JSON). """
 
-        self.type = None
-        """ Type of intended specimen.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.rejectionCriterion = None
+        """ Rejection criterion.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+
+        self.handling = None
+        """ Specimen handling before testing.
+        List of `SpecimenDefinitionTypeTestedHandling` items (represented as `dict` in JSON). """
 
         super(SpecimenDefinitionTypeTested, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(SpecimenDefinitionTypeTested, self).elementProperties()
         js.extend([
-            ("container", "container", SpecimenDefinitionTypeTestedContainer, False, None, False),
-            ("handling", "handling", SpecimenDefinitionTypeTestedHandling, True, None, False),
             ("isDerived", "isDerived", bool, False, None, False),
-            ("preference", "preference", str, False, None, True),
-            ("rejectionCriterion", "rejectionCriterion", codeableconcept.CodeableConcept, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("preference", "preference", SpecimenContainedPreference.str, False, None, True),
+            ("container", "container", SpecimenDefinitionTypeTestedContainer, False, None, False),
             ("requirement", "requirement", str, False, None, False),
             ("retentionTime", "retentionTime", duration.Duration, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("rejectionCriterion", "rejectionCriterion", codeableconcept.CodeableConcept, True, None, False),
+            ("handling", "handling", SpecimenDefinitionTypeTestedHandling, True, None, False),
         ])
         return js
 
@@ -133,8 +131,6 @@ class SpecimenDefinitionTypeTested(backboneelement.BackboneElement):
 class SpecimenDefinitionTypeTestedContainer(backboneelement.BackboneElement):
     """ The specimen's container.
     """
-
-    resource_type = "SpecimenDefinitionTypeTestedContainer"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -144,25 +140,25 @@ class SpecimenDefinitionTypeTestedContainer(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.additive = None
-        """ Additive associated with container.
-        List of `SpecimenDefinitionTypeTestedContainerAdditive` items (represented as `dict` in JSON). """
+        self.material = None
+        """ Container material.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.type = None
+        """ Kind of container associated with the kind of specimen.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         self.cap = None
         """ Color of container cap.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
-        self.capacity = None
-        """ Container capacity.
-        Type `Quantity` (represented as `dict` in JSON). """
-
         self.description = None
         """ Container description.
         Type `str`. """
 
-        self.material = None
-        """ Container material.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.capacity = None
+        """ Container capacity.
+        Type `Quantity` (represented as `dict` in JSON). """
 
         self.minimumVolumeQuantity = None
         """ Minimum volume.
@@ -172,28 +168,28 @@ class SpecimenDefinitionTypeTestedContainer(backboneelement.BackboneElement):
         """ Minimum volume.
         Type `str`. """
 
+        self.additive = None
+        """ Additive associated with container.
+        List of `SpecimenDefinitionTypeTestedContainerAdditive` items (represented as `dict` in JSON). """
+
         self.preparation = None
         """ Specimen container preparation.
         Type `str`. """
-
-        self.type = None
-        """ Kind of container associated with the kind of specimen.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         super(SpecimenDefinitionTypeTestedContainer, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(SpecimenDefinitionTypeTestedContainer, self).elementProperties()
         js.extend([
-            ("additive", "additive", SpecimenDefinitionTypeTestedContainerAdditive, True, None, False),
-            ("cap", "cap", codeableconcept.CodeableConcept, False, None, False),
-            ("capacity", "capacity", quantity.Quantity, False, None, False),
-            ("description", "description", str, False, None, False),
             ("material", "material", codeableconcept.CodeableConcept, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("cap", "cap", codeableconcept.CodeableConcept, False, None, False),
+            ("description", "description", str, False, None, False),
+            ("capacity", "capacity", quantity.Quantity, False, None, False),
             ("minimumVolumeQuantity", "minimumVolumeQuantity", quantity.Quantity, False, "minimumVolume", False),
             ("minimumVolumeString", "minimumVolumeString", str, False, "minimumVolume", False),
+            ("additive", "additive", SpecimenDefinitionTypeTestedContainerAdditive, True, None, False),
             ("preparation", "preparation", str, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -204,8 +200,6 @@ class SpecimenDefinitionTypeTestedContainerAdditive(backboneelement.BackboneElem
     Substance introduced in the kind of container to preserve, maintain or
     enhance the specimen. Examples: Formalin, Citrate, EDTA.
     """
-
-    resource_type = "SpecimenDefinitionTypeTestedContainerAdditive"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -241,8 +235,6 @@ class SpecimenDefinitionTypeTestedHandling(backboneelement.BackboneElement):
     temperature interval, prior the testing process.
     """
 
-    resource_type = "SpecimenDefinitionTypeTestedHandling"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -250,14 +242,6 @@ class SpecimenDefinitionTypeTestedHandling(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-
-        self.instruction = None
-        """ Preservation instruction.
-        Type `str`. """
-
-        self.maxDuration = None
-        """ Maximum preservation time.
-        Type `Duration` (represented as `dict` in JSON). """
 
         self.temperatureQualifier = None
         """ Temperature qualifier.
@@ -267,20 +251,32 @@ class SpecimenDefinitionTypeTestedHandling(backboneelement.BackboneElement):
         """ Temperature range.
         Type `Range` (represented as `dict` in JSON). """
 
+        self.maxDuration = None
+        """ Maximum preservation time.
+        Type `Duration` (represented as `dict` in JSON). """
+
+        self.instruction = None
+        """ Preservation instruction.
+        Type `str`. """
+
         super(SpecimenDefinitionTypeTestedHandling, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(SpecimenDefinitionTypeTestedHandling, self).elementProperties()
         js.extend([
-            ("instruction", "instruction", str, False, None, False),
-            ("maxDuration", "maxDuration", duration.Duration, False, None, False),
             ("temperatureQualifier", "temperatureQualifier", codeableconcept.CodeableConcept, False, None, False),
             ("temperatureRange", "temperatureRange", range.Range, False, None, False),
+            ("maxDuration", "maxDuration", duration.Duration, False, None, False),
+            ("instruction", "instruction", str, False, None, False),
         ])
         return js
 
 
 import sys
+try:
+    from . import SpecimenContainedPreference
+except ImportError:
+    SpecimenContainedPreference = sys.modules[__package__ + '.SpecimenContainedPreference']
 try:
     from . import codeableconcept
 except ImportError:

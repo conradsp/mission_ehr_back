@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MarketingStatus) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/MarketingStatus) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -13,8 +13,6 @@ class MarketingStatus(backboneelement.BackboneElement):
     actually put on the market or the date as of which it is no longer
     available.
     """
-
-    resource_type = "MarketingStatus"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -30,6 +28,20 @@ class MarketingStatus(backboneelement.BackboneElement):
         alpha-2 code elements.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
+        self.jurisdiction = None
+        """ Where a Medicines Regulatory Agency has granted a marketing
+        authorisation for which specific provisions within a jurisdiction
+        apply, the jurisdiction can be specified using an appropriate
+        controlled terminology The controlled term and the controlled term
+        identifier shall be specified.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.status = None
+        """ This attribute provides information on the status of the marketing
+        of the medicinal product See ISO/TS 20443 for more information and
+        examples.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
         self.dateRange = None
         """ The date when the Medicinal Product is placed on the market by the
         Marketing Authorisation Holder (or where applicable, the
@@ -39,14 +51,6 @@ class MarketingStatus(backboneelement.BackboneElement):
         market” refers to the release of the Medicinal Product into the
         distribution chain.
         Type `Period` (represented as `dict` in JSON). """
-
-        self.jurisdiction = None
-        """ Where a Medicines Regulatory Agency has granted a marketing
-        authorisation for which specific provisions within a jurisdiction
-        apply, the jurisdiction can be specified using an appropriate
-        controlled terminology The controlled term and the controlled term
-        identifier shall be specified.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         self.restoreDate = None
         """ The date when the Medicinal Product is placed on the market by the
@@ -58,22 +62,16 @@ class MarketingStatus(backboneelement.BackboneElement):
         distribution chain.
         Type `FHIRDate` (represented as `str` in JSON). """
 
-        self.status = None
-        """ This attribute provides information on the status of the marketing
-        of the medicinal product See ISO/TS 20443 for more information and
-        examples.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-
         super(MarketingStatus, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(MarketingStatus, self).elementProperties()
         js.extend([
-            ("country", "country", codeableconcept.CodeableConcept, False, None, True),
-            ("dateRange", "dateRange", period.Period, False, None, True),
+            ("country", "country", codeableconcept.CodeableConcept, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, False, None, False),
-            ("restoreDate", "restoreDate", fhirdate.FHIRDate, False, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, True),
+            ("dateRange", "dateRange", period.Period, False, None, False),
+            ("restoreDate", "restoreDate", fhirdate.FHIRDate, False, None, False),
         ])
         return js
 

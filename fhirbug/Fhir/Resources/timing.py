@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Timing) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/Timing) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -18,8 +18,6 @@ class Timing(backboneelement.BackboneElement):
     schedule to which past regular activities were carried out.
     """
 
-    resource_type = "Timing"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -27,10 +25,6 @@ class Timing(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-
-        self.code = None
-        """ BID | TID | QID | AM | PM | QD | QOD | +.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
 
         self.event = None
         """ When the event occurs.
@@ -40,14 +34,18 @@ class Timing(backboneelement.BackboneElement):
         """ When the event is to occur.
         Type `TimingRepeat` (represented as `dict` in JSON). """
 
+        self.code = None
+        """ BID | TID | QID | AM | PM | QD | QOD | +.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
         super(Timing, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(Timing, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("event", "event", fhirdate.FHIRDate, True, None, False),
             ("repeat", "repeat", TimingRepeat, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -59,8 +57,6 @@ class TimingRepeat(element.Element):
 
     A set of rules that describe when the event is scheduled.
     """
-
-    resource_type = "TimingRepeat"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -74,13 +70,13 @@ class TimingRepeat(element.Element):
         """ Length/Range of lengths, or (Start and/or end) limits.
         Type `Duration` (represented as `dict` in JSON). """
 
-        self.boundsPeriod = None
-        """ Length/Range of lengths, or (Start and/or end) limits.
-        Type `Period` (represented as `dict` in JSON). """
-
         self.boundsRange = None
         """ Length/Range of lengths, or (Start and/or end) limits.
         Type `Range` (represented as `dict` in JSON). """
+
+        self.boundsPeriod = None
+        """ Length/Range of lengths, or (Start and/or end) limits.
+        Type `Period` (represented as `dict` in JSON). """
 
         self.count = None
         """ Number of times to repeat.
@@ -89,10 +85,6 @@ class TimingRepeat(element.Element):
         self.countMax = None
         """ Maximum number of times to repeat.
         Type `int`. """
-
-        self.dayOfWeek = None
-        """ mon | tue | wed | thu | fri | sat | sun.
-        List of `str` items. """
 
         self.duration = None
         """ How long when it happens.
@@ -114,10 +106,6 @@ class TimingRepeat(element.Element):
         """ Event occurs up to frequencyMax times per period.
         Type `int`. """
 
-        self.offset = None
-        """ Minutes from event (before or after).
-        Type `int`. """
-
         self.period = None
         """ Event occurs frequency times per period.
         Type `float`. """
@@ -130,6 +118,10 @@ class TimingRepeat(element.Element):
         """ s | min | h | d | wk | mo | a - unit of time (UCUM).
         Type `str`. """
 
+        self.dayOfWeek = None
+        """ mon | tue | wed | thu | fri | sat | sun.
+        List of `str` items. """
+
         self.timeOfDay = None
         """ Time of day for action.
         List of `FHIRDate` items (represented as `str` in JSON). """
@@ -138,33 +130,41 @@ class TimingRepeat(element.Element):
         """ Code for time period of occurrence.
         List of `str` items. """
 
+        self.offset = None
+        """ Minutes from event (before or after).
+        Type `int`. """
+
         super(TimingRepeat, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(TimingRepeat, self).elementProperties()
         js.extend([
             ("boundsDuration", "boundsDuration", duration.Duration, False, "bounds", False),
-            ("boundsPeriod", "boundsPeriod", period.Period, False, "bounds", False),
             ("boundsRange", "boundsRange", range.Range, False, "bounds", False),
+            ("boundsPeriod", "boundsPeriod", period.Period, False, "bounds", False),
             ("count", "count", int, False, None, False),
             ("countMax", "countMax", int, False, None, False),
-            ("dayOfWeek", "dayOfWeek", str, True, None, False),
             ("duration", "duration", float, False, None, False),
             ("durationMax", "durationMax", float, False, None, False),
             ("durationUnit", "durationUnit", str, False, None, False),
             ("frequency", "frequency", int, False, None, False),
             ("frequencyMax", "frequencyMax", int, False, None, False),
-            ("offset", "offset", int, False, None, False),
             ("period", "period", float, False, None, False),
             ("periodMax", "periodMax", float, False, None, False),
             ("periodUnit", "periodUnit", str, False, None, False),
+            ("dayOfWeek", "dayOfWeek", DaysOfWeek.str, True, None, False),
             ("timeOfDay", "timeOfDay", fhirdate.FHIRDate, True, None, False),
             ("when", "when", str, True, None, False),
+            ("offset", "offset", int, False, None, False),
         ])
         return js
 
 
 import sys
+try:
+    from . import DaysOfWeek
+except ImportError:
+    DaysOfWeek = sys.modules[__package__ + '.DaysOfWeek']
 try:
     from . import codeableconcept
 except ImportError:

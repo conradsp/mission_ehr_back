@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Binary) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/Binary) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -30,14 +30,14 @@ class Binary(resource.Resource):
         """ MimeType of the binary content.
         Type `str`. """
 
-        self.data = None
-        """ The actual content.
-        Type `str`. """
-
         self.securityContext = None
         """ Identifies another resource to use as proxy when enforcing access
         control.
         Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.data = None
+        """ The actual content.
+        Type `str`. """
 
         super(Binary, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
@@ -45,8 +45,8 @@ class Binary(resource.Resource):
         js = super(Binary, self).elementProperties()
         js.extend([
             ("contentType", "contentType", str, False, None, True),
-            ("data", "data", str, False, None, False),
             ("securityContext", "securityContext", fhirreference.FHIRReference, False, None, False),
+            ("data", "data", str, False, None, False),
         ])
         return js
 

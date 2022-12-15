@@ -6,7 +6,7 @@ j = None
 searchables = {}
 
 path = os.path.dirname(os.path.abspath(__file__))
-with open (os.path.join(path, 'fhir_parser/downloads/search-parameters.json'), 'r') as f:
+with open (os.path.join(path, 'fhir-parser/downloads/search-parameters.json'), 'r') as f:
   j = json.loads(f.read())
 
 for entry in j['entry']:

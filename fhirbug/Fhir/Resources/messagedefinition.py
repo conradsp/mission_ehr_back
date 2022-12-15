@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MessageDefinition) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/MessageDefinition) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -27,33 +27,77 @@ class MessageDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.allowedResponse = None
-        """ Responses to this message.
-        List of `MessageDefinitionAllowedResponse` items (represented as `dict` in JSON). """
-
-        self.base = None
-        """ Definition this one is based on.
+        self.url = None
+        """ Business Identifier for a given MessageDefinition.
         Type `str`. """
 
-        self.category = None
-        """ consequence | currency | notification.
+        self.identifier = None
+        """ Primary key for the message definition on a given server.
+        List of `Identifier` items (represented as `dict` in JSON). """
+
+        self.version = None
+        """ Business version of the message definition.
+        Type `str`. """
+
+        self.name = None
+        """ Name for this message definition (computer friendly).
+        Type `str`. """
+
+        self.title = None
+        """ Name for this message definition (human friendly).
+        Type `str`. """
+
+        self.replaces = None
+        """ Takes the place of.
+        List of `str` items. """
+
+        self.status = None
+        """ draft | active | retired | unknown.
+        Type `str`. """
+
+        self.experimental = None
+        """ For testing purposes, not real usage.
+        Type `bool`. """
+
+        self.date = None
+        """ Date last changed.
+        Type `FHIRDate` (represented as `str` in JSON). """
+
+        self.publisher = None
+        """ Name of the publisher (organization or individual).
         Type `str`. """
 
         self.contact = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
 
+        self.description = None
+        """ Natural language description of the message definition.
+        Type `str`. """
+
+        self.useContext = None
+        """ The context that the content is intended to support.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+
+        self.jurisdiction = None
+        """ Intended jurisdiction for message definition (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+
+        self.purpose = None
+        """ Why this message definition is defined.
+        Type `str`. """
+
         self.copyright = None
         """ Use and/or publishing restrictions.
         Type `str`. """
 
-        self.date = None
-        """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
-
-        self.description = None
-        """ Natural language description of the message definition.
+        self.base = None
+        """ Definition this one is based on.
         Type `str`. """
+
+        self.parent = None
+        """ Protocol/workflow this is part of.
+        List of `str` items. """
 
         self.eventCoding = None
         """ Event code  or link to the EventDefinition.
@@ -63,100 +107,56 @@ class MessageDefinition(domainresource.DomainResource):
         """ Event code  or link to the EventDefinition.
         Type `str`. """
 
-        self.experimental = None
-        """ For testing purposes, not real usage.
-        Type `bool`. """
+        self.category = None
+        """ consequence | currency | notification.
+        Type `str`. """
 
         self.focus = None
         """ Resource(s) that are the subject of the event.
         List of `MessageDefinitionFocus` items (represented as `dict` in JSON). """
 
-        self.graph = None
-        """ Canonical reference to a GraphDefinition.
-        List of `str` items. """
-
-        self.identifier = None
-        """ Primary key for the message definition on a given server.
-        List of `Identifier` items (represented as `dict` in JSON). """
-
-        self.jurisdiction = None
-        """ Intended jurisdiction for message definition (if applicable).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-
-        self.name = None
-        """ Name for this message definition (computer friendly).
-        Type `str`. """
-
-        self.parent = None
-        """ Protocol/workflow this is part of.
-        List of `str` items. """
-
-        self.publisher = None
-        """ Name of the publisher (organization or individual).
-        Type `str`. """
-
-        self.purpose = None
-        """ Why this message definition is defined.
-        Type `str`. """
-
-        self.replaces = None
-        """ Takes the place of.
-        List of `str` items. """
-
         self.responseRequired = None
         """ always | on-error | never | on-success.
         Type `str`. """
 
-        self.status = None
-        """ draft | active | retired | unknown.
-        Type `str`. """
+        self.allowedResponse = None
+        """ Responses to this message.
+        List of `MessageDefinitionAllowedResponse` items (represented as `dict` in JSON). """
 
-        self.title = None
-        """ Name for this message definition (human friendly).
-        Type `str`. """
-
-        self.url = None
-        """ Business Identifier for a given MessageDefinition.
-        Type `str`. """
-
-        self.useContext = None
-        """ The context that the content is intended to support.
-        List of `UsageContext` items (represented as `dict` in JSON). """
-
-        self.version = None
-        """ Business version of the message definition.
-        Type `str`. """
+        self.graph = None
+        """ Canonical reference to a GraphDefinition.
+        List of `str` items. """
 
         super(MessageDefinition, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(MessageDefinition, self).elementProperties()
         js.extend([
-            ("allowedResponse", "allowedResponse", MessageDefinitionAllowedResponse, True, None, False),
-            ("base", "base", str, False, None, False),
-            ("category", "category", str, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
+            ("url", "url", str, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("version", "version", str, False, None, False),
+            ("name", "name", str, False, None, False),
+            ("title", "title", str, False, None, False),
+            ("replaces", "replaces", str, True, None, False),
+            ("status", "status", PublicationStatus.str, False, None, True),
+            ("experimental", "experimental", bool, False, None, False),
             ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("publisher", "publisher", str, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("description", "description", str, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("purpose", "purpose", str, False, None, False),
+            ("copyright", "copyright", str, False, None, False),
+            ("base", "base", str, False, None, False),
+            ("parent", "parent", str, True, None, False),
             ("eventCoding", "eventCoding", coding.Coding, False, "event", True),
             ("eventUri", "eventUri", str, False, "event", True),
-            ("experimental", "experimental", bool, False, None, False),
+            ("category", "category", MessageSignificanceCategory.str, False, None, False),
             ("focus", "focus", MessageDefinitionFocus, True, None, False),
+            ("responseRequired", "responseRequired", MessageheaderResponseRequest.str, False, None, False),
+            ("allowedResponse", "allowedResponse", MessageDefinitionAllowedResponse, True, None, False),
             ("graph", "graph", str, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("parent", "parent", str, True, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
-            ("replaces", "replaces", str, True, None, False),
-            ("responseRequired", "responseRequired", str, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("title", "title", str, False, None, False),
-            ("url", "url", str, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
         ])
         return js
 
@@ -169,8 +169,6 @@ class MessageDefinitionAllowedResponse(backboneelement.BackboneElement):
     Indicates what types of messages may be sent as an application-level
     response to this message.
     """
-
-    resource_type = "MessageDefinitionAllowedResponse"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -207,8 +205,6 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
     records for a merge.
     """
 
-    resource_type = "MessageDefinitionFocus"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -221,16 +217,16 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
         """ Type of resource.
         Type `str`. """
 
-        self.max = None
-        """ Maximum number of focuses of this type.
+        self.profile = None
+        """ Profile that must be adhered to by focus.
         Type `str`. """
 
         self.min = None
         """ Minimum number of focuses of this type.
         Type `int`. """
 
-        self.profile = None
-        """ Profile that must be adhered to by focus.
+        self.max = None
+        """ Maximum number of focuses of this type.
         Type `str`. """
 
         super(MessageDefinitionFocus, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
@@ -238,15 +234,31 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MessageDefinitionFocus, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, True),
-            ("max", "max", str, False, None, False),
-            ("min", "min", int, False, None, True),
+            ("code", "code", ResourceType.str, False, None, True),
             ("profile", "profile", str, False, None, False),
+            ("min", "min", int, False, None, True),
+            ("max", "max", str, False, None, False),
         ])
         return js
 
 
 import sys
+try:
+    from . import MessageSignificanceCategory
+except ImportError:
+    MessageSignificanceCategory = sys.modules[__package__ + '.MessageSignificanceCategory']
+try:
+    from . import MessageheaderResponseRequest
+except ImportError:
+    MessageheaderResponseRequest = sys.modules[__package__ + '.MessageheaderResponseRequest']
+try:
+    from . import PublicationStatus
+except ImportError:
+    PublicationStatus = sys.modules[__package__ + '.PublicationStatus']
+try:
+    from . import ResourceType
+except ImportError:
+    ResourceType = sys.modules[__package__ + '.ResourceType']
 try:
     from . import codeableconcept
 except ImportError:

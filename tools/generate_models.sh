@@ -6,9 +6,9 @@
 
 TOOLS_DIR=$(dirname "$0")
 cd $TOOLS_DIR
-source fhir_parser/.venv/bin/activate
+#source fhir-parser/.venv/bin/activate
 
-cp ../fhirbug/Fhir/base/settings.py fhir_parser/settings.py
-cd fhir_parser
+cp ../fhirbug/Fhir/base/settings.py fhir-parser/settings.py
+cd fhir-parser
 ./generate.py $1
 cd ..

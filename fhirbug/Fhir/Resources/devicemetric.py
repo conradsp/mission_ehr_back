@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -25,38 +25,9 @@ class DeviceMetric(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.calibration = None
-        """ Describes the calibrations that have been performed or that are
-        required to be performed.
-        List of `DeviceMetricCalibration` items (represented as `dict` in JSON). """
-
-        self.category = None
-        """ measurement | setting | calculation | unspecified.
-        Type `str`. """
-
-        self.color = None
-        """ black | red | green | yellow | blue | magenta | cyan | white.
-        Type `str`. """
-
         self.identifier = None
         """ Instance identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
-
-        self.measurementPeriod = None
-        """ Describes the measurement repetition time.
-        Type `Timing` (represented as `dict` in JSON). """
-
-        self.operationalStatus = None
-        """ on | off | standby | entered-in-error.
-        Type `str`. """
-
-        self.parent = None
-        """ Describes the link to the parent Device.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.source = None
-        """ Describes the link to the source Device.
-        Type `FHIRReference` (represented as `dict` in JSON). """
 
         self.type = None
         """ Identity of metric, for example Heart Rate or PEEP Setting.
@@ -66,21 +37,50 @@ class DeviceMetric(domainresource.DomainResource):
         """ Unit of Measure for the Metric.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
+        self.source = None
+        """ Describes the link to the source Device.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.parent = None
+        """ Describes the link to the parent Device.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.operationalStatus = None
+        """ on | off | standby | entered-in-error.
+        Type `str`. """
+
+        self.color = None
+        """ black | red | green | yellow | blue | magenta | cyan | white.
+        Type `str`. """
+
+        self.category = None
+        """ measurement | setting | calculation | unspecified.
+        Type `str`. """
+
+        self.measurementPeriod = None
+        """ Describes the measurement repetition time.
+        Type `Timing` (represented as `dict` in JSON). """
+
+        self.calibration = None
+        """ Describes the calibrations that have been performed or that are
+        required to be performed.
+        List of `DeviceMetricCalibration` items (represented as `dict` in JSON). """
+
         super(DeviceMetric, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(DeviceMetric, self).elementProperties()
         js.extend([
-            ("calibration", "calibration", DeviceMetricCalibration, True, None, False),
-            ("category", "category", str, False, None, True),
-            ("color", "color", str, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("measurementPeriod", "measurementPeriod", timing.Timing, False, None, False),
-            ("operationalStatus", "operationalStatus", str, False, None, False),
-            ("parent", "parent", fhirreference.FHIRReference, False, None, False),
-            ("source", "source", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("unit", "unit", codeableconcept.CodeableConcept, False, None, False),
+            ("source", "source", fhirreference.FHIRReference, False, None, False),
+            ("parent", "parent", fhirreference.FHIRReference, False, None, False),
+            ("operationalStatus", "operationalStatus", DeviceMetricOperationalStatus.str, False, None, False),
+            ("color", "color", DeviceMetricColor.str, False, None, False),
+            ("category", "category", DeviceMetricCategory.str, False, None, True),
+            ("measurementPeriod", "measurementPeriod", timing.Timing, False, None, False),
+            ("calibration", "calibration", DeviceMetricCalibration, True, None, False),
         ])
         return js
 
@@ -92,8 +92,6 @@ class DeviceMetricCalibration(backboneelement.BackboneElement):
     be performed.
     """
 
-    resource_type = "DeviceMetricCalibration"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -101,6 +99,10 @@ class DeviceMetricCalibration(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+
+        self.type = None
+        """ unspecified | offset | gain | two-point.
+        Type `str`. """
 
         self.state = None
         """ not-calibrated | calibration-required | calibrated | unspecified.
@@ -110,23 +112,39 @@ class DeviceMetricCalibration(backboneelement.BackboneElement):
         """ Describes the time last calibration has been performed.
         Type `FHIRDate` (represented as `str` in JSON). """
 
-        self.type = None
-        """ unspecified | offset | gain | two-point.
-        Type `str`. """
-
         super(DeviceMetricCalibration, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(DeviceMetricCalibration, self).elementProperties()
         js.extend([
-            ("state", "state", str, False, None, False),
+            ("type", "type", DeviceMetricCalibrationType.str, False, None, False),
+            ("state", "state", DeviceMetricCalibrationState.str, False, None, False),
             ("time", "time", fhirdate.FHIRDate, False, None, False),
-            ("type", "type", str, False, None, False),
         ])
         return js
 
 
 import sys
+try:
+    from . import DeviceMetricCalibrationState
+except ImportError:
+    DeviceMetricCalibrationState = sys.modules[__package__ + '.DeviceMetricCalibrationState']
+try:
+    from . import DeviceMetricCalibrationType
+except ImportError:
+    DeviceMetricCalibrationType = sys.modules[__package__ + '.DeviceMetricCalibrationType']
+try:
+    from . import DeviceMetricCategory
+except ImportError:
+    DeviceMetricCategory = sys.modules[__package__ + '.DeviceMetricCategory']
+try:
+    from . import DeviceMetricColor
+except ImportError:
+    DeviceMetricColor = sys.modules[__package__ + '.DeviceMetricColor']
+try:
+    from . import DeviceMetricOperationalStatus
+except ImportError:
+    DeviceMetricOperationalStatus = sys.modules[__package__ + '.DeviceMetricOperationalStatus']
 try:
     from . import codeableconcept
 except ImportError:

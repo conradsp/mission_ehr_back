@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MeasureReport) on 2019-01-25.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.3.0 (http://hl7.org/fhir/StructureDefinition/MeasureReport) on 2022-12-14.
+#  2022, SMART Health IT.
 ##
 
 
@@ -26,66 +26,66 @@ class MeasureReport(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
-        self.date = None
-        """ When the report was generated.
-        Type `FHIRDate` (represented as `str` in JSON). """
-
-        self.evaluatedResource = None
-        """ What data was used to calculate the measure score.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-
-        self.group = None
-        """ Measure results for each group.
-        List of `MeasureReportGroup` items (represented as `dict` in JSON). """
-
         self.identifier = None
         """ Additional identifier for the MeasureReport.
         List of `Identifier` items (represented as `dict` in JSON). """
 
-        self.improvementNotation = None
-        """ increase | decrease.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.status = None
+        """ complete | pending | error.
+        Type `str`. """
+
+        self.type = None
+        """ individual | subject-list | summary | data-collection.
+        Type `str`. """
 
         self.measure = None
         """ What measure was calculated.
-        Type `str`. """
-
-        self.period = None
-        """ What period the report covers.
-        Type `Period` (represented as `dict` in JSON). """
-
-        self.reporter = None
-        """ Who is reporting the data.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-
-        self.status = None
-        """ complete | pending | error.
         Type `str`. """
 
         self.subject = None
         """ What individual(s) the report is for.
         Type `FHIRReference` (represented as `dict` in JSON). """
 
-        self.type = None
-        """ individual | subject-list | summary | data-collection.
-        Type `str`. """
+        self.date = None
+        """ When the report was generated.
+        Type `FHIRDate` (represented as `str` in JSON). """
+
+        self.reporter = None
+        """ Who is reporting the data.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+
+        self.period = None
+        """ What period the report covers.
+        Type `Period` (represented as `dict` in JSON). """
+
+        self.improvementNotation = None
+        """ increase | decrease.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
+        self.group = None
+        """ Measure results for each group.
+        List of `MeasureReportGroup` items (represented as `dict` in JSON). """
+
+        self.evaluatedResource = None
+        """ What data was used to calculate the measure score.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
 
         super(MeasureReport, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(MeasureReport, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("evaluatedResource", "evaluatedResource", fhirreference.FHIRReference, True, None, False),
-            ("group", "group", MeasureReportGroup, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("improvementNotation", "improvementNotation", codeableconcept.CodeableConcept, False, None, False),
+            ("status", "status", MeasureReportStatus.str, False, None, True),
+            ("type", "type", MeasureReportType.str, False, None, True),
             ("measure", "measure", str, False, None, True),
-            ("period", "period", period.Period, False, None, True),
-            ("reporter", "reporter", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("reporter", "reporter", fhirreference.FHIRReference, False, None, False),
+            ("period", "period", period.Period, False, None, True),
+            ("improvementNotation", "improvementNotation", codeableconcept.CodeableConcept, False, None, False),
+            ("group", "group", MeasureReportGroup, True, None, False),
+            ("evaluatedResource", "evaluatedResource", fhirreference.FHIRReference, True, None, False),
         ])
         return js
 
@@ -99,8 +99,6 @@ class MeasureReportGroup(backboneelement.BackboneElement):
     measure.
     """
 
-    resource_type = "MeasureReportGroup"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -113,13 +111,13 @@ class MeasureReportGroup(backboneelement.BackboneElement):
         """ Meaning of the group.
         Type `CodeableConcept` (represented as `dict` in JSON). """
 
-        self.measureScore = None
-        """ What score this group achieved.
-        Type `Quantity` (represented as `dict` in JSON). """
-
         self.population = None
         """ The populations in the group.
         List of `MeasureReportGroupPopulation` items (represented as `dict` in JSON). """
+
+        self.measureScore = None
+        """ What score this group achieved.
+        Type `Quantity` (represented as `dict` in JSON). """
 
         self.stratifier = None
         """ Stratification results.
@@ -131,8 +129,8 @@ class MeasureReportGroup(backboneelement.BackboneElement):
         js = super(MeasureReportGroup, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("measureScore", "measureScore", quantity.Quantity, False, None, False),
             ("population", "population", MeasureReportGroupPopulation, True, None, False),
+            ("measureScore", "measureScore", quantity.Quantity, False, None, False),
             ("stratifier", "stratifier", MeasureReportGroupStratifier, True, None, False),
         ])
         return js
@@ -144,8 +142,6 @@ class MeasureReportGroupPopulation(backboneelement.BackboneElement):
     The populations that make up the population group, one for each type of
     population appropriate for the measure.
     """
-
-    resource_type = "MeasureReportGroupPopulation"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -188,8 +184,6 @@ class MeasureReportGroupStratifier(backboneelement.BackboneElement):
     group for each stratifier defined by the measure.
     """
 
-    resource_type = "MeasureReportGroupStratifier"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -227,8 +221,6 @@ class MeasureReportGroupStratifierStratum(backboneelement.BackboneElement):
     will be four strata, one for each possible gender value.
     """
 
-    resource_type = "MeasureReportGroupStratifierStratum"
-
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
 
@@ -237,31 +229,31 @@ class MeasureReportGroupStratifierStratum(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
 
+        self.value = None
+        """ The stratum value, e.g. male.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+
         self.component = None
         """ Stratifier component values.
         List of `MeasureReportGroupStratifierStratumComponent` items (represented as `dict` in JSON). """
-
-        self.measureScore = None
-        """ What score this stratum achieved.
-        Type `Quantity` (represented as `dict` in JSON). """
 
         self.population = None
         """ Population results in this stratum.
         List of `MeasureReportGroupStratifierStratumPopulation` items (represented as `dict` in JSON). """
 
-        self.value = None
-        """ The stratum value, e.g. male.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
+        self.measureScore = None
+        """ What score this stratum achieved.
+        Type `Quantity` (represented as `dict` in JSON). """
 
         super(MeasureReportGroupStratifierStratum, self).__init__(jsondict=jsondict, strict=strict, **kwargs)
 
     def elementProperties(self):
         js = super(MeasureReportGroupStratifierStratum, self).elementProperties()
         js.extend([
-            ("component", "component", MeasureReportGroupStratifierStratumComponent, True, None, False),
-            ("measureScore", "measureScore", quantity.Quantity, False, None, False),
-            ("population", "population", MeasureReportGroupStratifierStratumPopulation, True, None, False),
             ("value", "value", codeableconcept.CodeableConcept, False, None, False),
+            ("component", "component", MeasureReportGroupStratifierStratumComponent, True, None, False),
+            ("population", "population", MeasureReportGroupStratifierStratumPopulation, True, None, False),
+            ("measureScore", "measureScore", quantity.Quantity, False, None, False),
         ])
         return js
 
@@ -271,8 +263,6 @@ class MeasureReportGroupStratifierStratumComponent(backboneelement.BackboneEleme
 
     A stratifier component value.
     """
-
-    resource_type = "MeasureReportGroupStratifierStratumComponent"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -307,8 +297,6 @@ class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElem
     The populations that make up the stratum, one for each type of population
     appropriate to the measure.
     """
-
-    resource_type = "MeasureReportGroupStratifierStratumPopulation"
 
     def __init__(self, jsondict=None, strict=True, **kwargs):
         """ Initialize all valid properties.
@@ -345,6 +333,14 @@ class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElem
 
 
 import sys
+try:
+    from . import MeasureReportStatus
+except ImportError:
+    MeasureReportStatus = sys.modules[__package__ + '.MeasureReportStatus']
+try:
+    from . import MeasureReportType
+except ImportError:
+    MeasureReportType = sys.modules[__package__ + '.MeasureReportType']
 try:
     from . import codeableconcept
 except ImportError:
